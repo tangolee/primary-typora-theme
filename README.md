@@ -8,6 +8,8 @@ matching warm charcoal dark theme, with the same typography, the same terracotta
 chips and pill tags.
 
 ---
+<img width="906" height="1500" alt="screenshot-compare" src="https://github.com/user-attachments/assets/822f7160-bf6b-439c-8c65-7ec884829a29" />
+
 
 ## Installation
 

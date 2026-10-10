@@ -188,6 +188,10 @@ target and it becomes a pill:
 exists purely as a styling hook. For export targets (HTML, PDF) the  
 class-based form is still supported and styled:
 
+<span class="tag tag-1">#yellow-pill</span>
+
+<span class="tag tag-1">#yellow-pill</span>
+
 ```html
 <span class="tag">#primary-features</span>
 <span class="tag tag-1">#yellow-pill</span>

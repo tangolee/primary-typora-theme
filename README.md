@@ -8,31 +8,26 @@ matching warm charcoal dark theme, with the same typography, the same terracotta
 chips and pill tags.
 
 ---
-<img width="906" height="1500" alt="screenshot-compare" src="https://github.com/user-attachments/assets/822f7160-bf6b-439c-8c65-7ec884829a29" />
-
 
 ## Installation
 
 1. Copy `primary.css`, `primary-dark.css` **and the `primary-fonts/` folder**  
    into Typora's theme directory:
 
-   | Platform | Path                                          |
-   | -------- | --------------------------------------------- |
-   | Windows  | `%APPDATA%\typora\themes`                     |
+   | Platform | Path |
+   | -------- | ---- |
+   | Windows  | `%APPDATA%\typora\themes` |
    | macOS    | `~/Library/Application Support/typora/themes` |
-   | Linux    | `~/.config/typora/themes`                     |
+   | Linux    | `~/.config/typora/themes` |
 
    The `primary-fonts` folder must sit **next to** the two CSS files — the theme  
    loads every one of its four families from it with a relative path. It is ~27 MB  
    and it is not optional if you want the intended look on a machine that has  
    none of these fonts installed.
-
 2. In Typora open **File → Preferences → Appearance → Themes** and pick  
    **Primary**. Enable **Appearance → Themes → Dark mode** (or *Follow system*)  
    to get `primary-dark.css`.
-
 3. Recommended Typora settings for the intended look:
-
    - **Appearance** — *Unibody* or *Minimal* window style.
    - **Markdown → Syntax support → Math / Diagrams** on, for the math styling.
    - **Appearance → Open Theme Folder** is the fastest way to install by hand.
@@ -68,12 +63,12 @@ approximated:
 The theme runs on four families, **all four bundled** in `primary-fonts/` as  
 woff2 — nothing has to be installed:
 
-| Role              | Family                   | File                        | Size      | Licence           |
-| ----------------- | ------------------------ | --------------------------- | --------- | ----------------- |
-| Latin body & UI   | **Inter** (variable)     | `InterVar*.woff2`           | 0.69 MiB  | SIL OFL 1.1       |
-| **Chinese (CJK)** | **HarmonyOS Sans SC**    | `HarmonyOS-Sans-SC-*.woff2` | 8.28 MiB  | Huawei font terms |
-| **Code**          | **Maple Mono NF CN**     | `MapleMono-NF-CN-*.woff2`   | 18.47 MiB | SIL OFL 1.1       |
-| Code fallback     | Cascadia Code (variable) | `CascadiaCode.woff2`        | 0.19 MiB  | SIL OFL 1.1       |
+| Role              | Family                   | File                        | Size     | Licence           |
+| ----------------- | ------------------------ | --------------------------- | -------- | ----------------- |
+| Latin body & UI   | **Inter** (variable)     | `InterVar*.woff2`           | 0.69 MiB | SIL OFL 1.1       |
+| **Chinese (CJK)** | **HarmonyOS Sans SC**    | `HarmonyOS-Sans-SC-*.woff2` | 8.28 MiB | Huawei font terms |
+| **Code**          | **Maple Mono NF CN**     | `MapleMono-NF-CN-*.woff2`   | 18.47 MiB | SIL OFL 1.1      |
+| Code fallback     | Cascadia Code (variable) | `CascadiaCode.woff2`        | 0.19 MiB | SIL OFL 1.1       |
 
 - Inter sits first in the text stack, so Latin, Greek and Cyrillic keep Primary's  
   intended Inter metrics. Everything Inter lacks — i.e. all CJK — falls straight  
@@ -136,6 +131,10 @@ the title stays in text colour.
 colours; Typora's five alerts can't cover them, so the theme also styles  
 Obsidian's own markup directly:
 
+> **Editor vs. export.** Typora strips `class`, `id` and `data-*` from user HTML  
+> while rendering. Those attributes come back on export, so route B applies to  
+> **HTML / PDF output only** — inside the editor, stick to route A.
+
 ```html
 <div class="callout" data-callout="question">
   <div class="callout-title">Question · 自定义标题</div>
@@ -178,12 +177,12 @@ target and it becomes a pill:
 [#primary-features](#tag)
 ```
 
-| Link target | Pill                     |
-| ----------- | ------------------------ |
-| `#tag`      | the default neutral pill |
-| `#tag-1`    | Primary's yellow tint    |
-| `#tag-2`    | Primary's red tint       |
-| `#tag-3`    | Primary's blue tint      |
+| Link target  | Pill                          |
+| ------------ | ----------------------------- |
+| `#tag`       | the default neutral pill      |
+| `#tag-1`     | Primary's yellow tint         |
+| `#tag-2`     | Primary's red tint            |
+| `#tag-3`     | Primary's blue tint           |
 
 `#tag*` is deliberately not a real heading id, so every tag link is inert — it  
 exists purely as a styling hook. For export targets (HTML, PDF) the  
@@ -193,8 +192,6 @@ class-based form is still supported and styled:
 <span class="tag">#primary-features</span>
 <span class="tag tag-1">#yellow-pill</span>
 ```
-
-### 
 
 ### Code
 
@@ -265,6 +262,102 @@ canvas into Primary's dotted paper.
 
 ---
 
+## Building from source
+
+```
+src/theme.css           shared rules (contains the /*@@ROOT@@*/ placeholder)
+src/palette-light.css   :root block for the light build
+src/palette-dark.css    :root block for the dark build
+src/fonts/*.woff2       all four families, copied into dist/primary-fonts/
+
+python build.py                     # → dist/primary.css, dist/primary-dark.css
+                                    #   also lints for unresolved custom properties
+python build.py --install           # …also copies into Typora's themes folder
+python dev/pack_system_fonts.py     # rebuild src/fonts/*.woff2 from C:\Windows\Fonts
+python dev/verify_fonts.py          # assert the woff2 files match their originals
+python dev/make_preview.py          # → dist/preview-light.html / preview-dark.html
+python dev/render_demo_md.py        # → dist/preview-demo-{light,dark}.html
+python dev/probe_base.py            # asserts Typora's base.css is fully overridden
+python dev/probe_tags.py            # asserts the tag pills light up — and only those
+python dev/probe_theme_fallback.py  # renders the theme with every local() stripped
+```
+
+`dev/make_preview.py` inlines the built CSS on top of a pinned copy of the  
+rules from Typora's own `base.css` / `base-control.css`, so the theme can be  
+eyeballed (and screenshotted) in any browser without launching Typora. That copy  
+is **verbatim on purpose**: anything the theme fails to neutralise will show up  
+in the preview instead of only appearing inside the app.
+
+`dev/render_demo_md.py` goes one step further and renders `demo/primary-demo.md`  
+itself — converting `> [!NOTE]` alerts, `- [x]` task items, `==mark==`, `~~strike~~`  
+and `[TOC]` into the exact markup Typora emits — then asserts that every raw HTML  
+block in the demo survived the round-trip and that the tag links are still real  
+anchors. It exits non-zero if anything was swallowed, so it doubles as a  
+regression test for the demo.
+
+`dev/probe_tags.py` guards the pills specifically, because their styling hook is  
+an attribute selector and that is easy to break in two opposite ways: drifts out  
+of spelling and the pill silently stops rendering, or turns out to be greedy and  
+quietly restyles ordinary links. It reads back computed styles for all four pill  
+variants and checks two deliberately ordinary links (an external one and an  
+in-document anchor) as negative controls.
+
+`dev/probe_base.py` is the guard for the layering itself. It renders the built  
+theme over those pinned base rules and reads back **computed** styles, failing if  
+a property still carries the base value — i.e. if the theme lost the cascade.  
+Two real bugs shipped before it existed, both from base rules being silently  
+inherited:
+
+| Symptom | Cause in Typora's `base.css` | Fix |
+|---|---|---|
+| Coloured rule on the left edge of every callout | `.md-alert { border-left: .25em solid #000 }` plus a per-type `border-left-color` | `border: none` on `.md-alert` |
+| Task-list checkboxes collapsed to a 1px speck | `#write input[type=checkbox] { width: inherit; height: inherit }` — an **ID** selector that outranks any class rule, and with `appearance: none` an `auto` replaced element has zero intrinsic size | `#write`-prefixed checkbox sizing |
+
+Three mechanics worth remembering when extending the theme: a rule in  
+`base.css` that uses an ID selector can only be beaten by matching or exceeding  
+that ID; any property the theme never mentions simply passes through; and  
+**`class` / `id` / `data-*` written in your own HTML never reach the DOM in the  
+live preview**, so a selector of that shape can never match — styling hooks  
+have to be built out of something Typora generates itself (its own classes, or  
+the `href` of a Markdown link).
+
+### Verifying the bundled fonts
+
+`local()` sitting before `url()` in every `@font-face` means that on a machine  
+where the fonts *are* installed, the bundled files are never read — so a  
+truncated or corrupted woff2 would go unnoticed during development and only  
+break on the machine the bundling was meant to help. Two checks exist for that:
+
+- `dev/verify_fonts.py` compares each woff2 against the system TTF it came from:  
+  table set, glyph count, character coverage, units per em, and **every**  
+  horizontal advance width. It also re-asserts the 2 : 1 CJK/Latin grid.
+- `dev/probe_bundled_fonts.html` loads the files in Chromium with `url()` only —  
+  no `local()` — and checks that each face reaches `loaded`, that the rendered  
+  pixels match the installed font, and that a deliberately broken URL reaches  
+  `error` (without that negative control a "loaded" verdict would prove nothing).
+- `dev/probe_theme_fallback.py` is the end-to-end version: it strips *every*  
+  `local()` out of the built `dist/primary.css` and renders the result, which is  
+  exactly what a machine with none of these fonts installed sees. It passes only  
+  if the theme's own `--p-font-text` / `--p-font-mono` stacks land on the bundled  
+  files and not on a system fallback.
+
+Run them with:
+
+```
+python dev/verify_fonts.py
+python dev/probe_theme_fallback.py
+
+"C:/Program Files/Google/Chrome/Application/chrome.exe" --headless=new \
+  --virtual-time-budget=30000 --dump-dom dev/probe_bundled_fonts.html
+```
+
+One gotcha these checks exist for: dropping a "web-useless" table while  
+re-compressing is the obvious optimisation, but `gasp` steers rasterisation —  
+without it the bundled Maple Mono rendered ~0.2 % differently from the installed  
+font. That is why the pack script is a *pure* re-containerisation, and why  
+`verify_fonts.py` compares the table set before anything else.
+
+---
 
 ## Licence
 
@@ -278,12 +371,12 @@ you redistribute a modified version, it must stay under the GPL-3.0 as well.
 
 The bundled fonts are a separate matter:
 
-| Font              | Licence                                                      | Bundling                            |
-| ----------------- | ------------------------------------------------------------ | ----------------------------------- |
-| Inter             | SIL OFL 1.1                                                  | permitted, redistributed unmodified |
-| Cascadia Code     | SIL OFL 1.1                                                  | permitted, redistributed unmodified |
-| Maple Mono NF CN  | SIL OFL 1.1                                                  | permitted, redistributed unmodified |
-| HarmonyOS Sans SC | Huawei's own font terms (free to use, including commercially) | see the caveat below                |
+| Font | Licence | Bundling |
+| ---- | ------- | -------- |
+| Inter | SIL OFL 1.1 | permitted, redistributed unmodified |
+| Cascadia Code | SIL OFL 1.1 | permitted, redistributed unmodified |
+| Maple Mono NF CN | SIL OFL 1.1 | permitted, redistributed unmodified |
+| HarmonyOS Sans SC | Huawei's own font terms (free to use, including commercially) | see the caveat below |
 
 **Read `FONTS.md` before redistributing this theme publicly.** It lists where  
 each file came from, and flags the one family whose terms are not the OFL.

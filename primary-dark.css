@@ -1580,9 +1580,20 @@ header,
   font-size: 0.78rem;
 }
 
-/* Modal dialogs ------------------------------------------------------------- */
-.modal-content,
-.modal-dialog {
+/* Modal dialogs -------------------------------------------------------------
+   Two nested boxes, but only the inner one is a card:
+
+       .modal-dialog    Bootstrap's positioning wrapper — width 600px, centred
+         .modal-content    the card — window.css insets it 30px on each side
+
+   Adorning both draws two concentric rounded rectangles with the same fill,
+   the same 1px hairline and two stacked copies of the same drop shadow, the
+   inner one sitting 31px inside the outer: the dialog reads as a clumsy double
+   frame. So the wrapper stays bare and all the chrome lives on the card. That
+   is also what Typora itself does — of the two, window.css only ever paints
+   `.modal-content`; the wrapper had no background of its own before the theme
+   touched it. */
+.modal-content {
   background: var(--p-raised-bg);
   border: 1px solid var(--p-border);
   border-radius: 12px;
@@ -1591,8 +1602,31 @@ header,
   font-family: var(--p-font-text);
 }
 
+/* Only when the wrapper really is a wrapper. `#typora-quick-open` carries the
+   same class while holding no card — see the rule for it below. A browser
+   without `:has()` drops this rule entirely and leaves the wrapper at its
+   Typora default, which is the outcome we want anyway. */
+.modal-dialog:has(> .modal-content) {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.modal-dialog {
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+}
+
 .modal-header, .modal-footer { border-color: var(--p-border); }
 .modal-title { color: var(--p-text-title); font-weight: 650; }
+
+/* Ctrl+P quick-open is the other kind of `modal-dialog`: the panel itself, with
+   no card inside. It has no rounding of its own, so now that the rule above is
+   scoped to real wrappers it would come out square — this puts it back. Its
+   background, padding and shadow stay Typora's; it already paints
+   --side-bar-bg-color, which the palette maps onto --p-bg-secondary. */
+#typora-quick-open { border-radius: 12px; }
 
 .btn, .btn-default {
   background: var(--p-soft-bg);

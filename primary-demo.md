@@ -21,6 +21,8 @@ Highlights come in three flavours: ==plain==, **==bold==** and *==italic==*.
 Read more at [the Primary documentation](https://github.com/primary-theme/obsidian),
 jump to [Callouts](#callouts), or mail <hello@example.com>.
 
+
+
 ## Headings
 
 ### Heading 3

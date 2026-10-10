@@ -159,17 +159,42 @@ Supported `data-callout` values:
 
 ### Tags
 
-Typora has **no hashtag syntax** — `#tag` is plain text and is not parsed into  
-an element, so it cannot be reached by CSS alone. The theme therefore ships the  
-pill styling on a small span:
+Two separate obstacles have to be routed around here, and it is worth being  
+precise about both.
+
+**Typora has no hashtag syntax.** `#tag` stays plain text — it never becomes an  
+element, so no CSS selector can reach it.
+
+**Typora also strips `class`, `id` and `data-*` from user HTML when rendering.**  
+The attributes survive export, but in the live preview they are gone, so  
+`<span class="tag">#tag</span>` renders as a bare, unstyled span. That is why  
+the earlier class-based pills appeared to do nothing.
+
+The portable way out is a **Markdown link**. Typora builds link DOM itself, so  
+the `href` is always present to select on — point a link at the reserved `#tag`  
+target and it becomes a pill:
+
+```markdown
+[#primary-features](#tag)
+```
+
+| Link target | Pill                     |
+| ----------- | ------------------------ |
+| `#tag`      | the default neutral pill |
+| `#tag-1`    | Primary's yellow tint    |
+| `#tag-2`    | Primary's red tint       |
+| `#tag-3`    | Primary's blue tint      |
+
+`#tag*` is deliberately not a real heading id, so every tag link is inert — it  
+exists purely as a styling hook. For export targets (HTML, PDF) the  
+class-based form is still supported and styled:
 
 ```html
 <span class="tag">#primary-features</span>
+<span class="tag tag-1">#yellow-pill</span>
 ```
 
-- bare `.tag` — the default neutral pill
-- add `.tag-1` / `.tag-2` / `.tag-3` for Primary's three alternating pill  
-  tints (yellow / red / blue), exactly as in the original.
+### 
 
 ### Code
 

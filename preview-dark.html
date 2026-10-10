@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primary for Typora — Dark</title>
+<style>
+/* ---------- Typora base approximation (preview only) ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: auto; }
+body { overflow-x: hidden; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+figure { overflow-x: auto; margin: 0; max-width: calc(100% + 16px); padding: 0; }
+p, li { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { page-break-after: avoid; break-after: avoid-page; }
+a { cursor: pointer; }
+pre, code, kbd, samp, tt { font-family: var(--monospace, monospace); }
+#write pre { white-space: pre-wrap; }
+#write .md-fences { white-space: pre; }
+.md-fences { display: block; white-space: pre; position: relative; }
+.md-fences .CodeMirror-scroll { overflow-x: auto; }
+.md-fences .CodeMirror { line-height: inherit; }
+.CodeMirror-line { min-height: 1em; }
+.md-fences .CodeMirror-lines { padding: 0; }
+.md-fences .CodeMirror-code { outline: none; }
+table.md-table td { min-width: 32px; }
+.md-table-fig { margin: 0; }
+.md-toc-content { position: relative; }
+.md-toc:after, .md-toc-content:after { content: ""; display: block; clear: both; }
+.md-toc-item { display: block; color: #4183c4; }
+.md-toc-inner { text-decoration: none; }
+.md-toc-h1 .md-toc-inner { margin-left: 0; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+/* ---------------------------------------------------------------------------
+   Verbatim from Typora's base.css / base-control.css. These are exactly the
+   rules that made an un-cancelled `.md-alert` border-left slip through a
+   previous round of screenshots, so they are reproduced immutably here:
+   anything the theme fails to neutralise WILL show up in the preview.
+   --------------------------------------------------------------------------- */
+.md-alert { padding: 0 1em; margin-bottom: 16px; color: inherit; border-left: .25em solid #000; }
+.md-alert.md-alert-note { border-left-color: #0969da; }
+.md-alert.md-alert-important { border-left-color: #8250df; }
+.md-alert.md-alert-warning { border-left-color: #9a6700; }
+.md-alert.md-alert-tip { border-left-color: #1f883d; }
+.md-alert.md-alert-caution { border-left-color: #cf222e; }
+.md-alert-text { font-size: .9rem; font-weight: 700; }
+.md-alert-text-note { color: #0969da; }
+.md-alert-text-important { color: #8250df; }
+.md-alert-text-warning { color: #9a6700; }
+.md-alert-text-tip { color: #1f883d; }
+.md-alert-text-caution { color: #cf222e; }
+.md-alert-text svg { fill: currentColor; position: relative; top: .125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+.md-alert .md-meta { display: none; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238,238,238,.7); color: #555; border-radius: 4px; cursor: pointer; }
+mark { background: #ff0; color: #000; }
+kbd { margin: 0 .1em; padding: .1em .6em; font-size: .8em; color: #242729; background: #fff; border: 1px solid #adb3b9; border-radius: 3px; box-shadow: 0 1px 0 rgba(12,13,14,.2), 0 0 0 2px #FFF inset; white-space: nowrap; vertical-align: middle; }
+pre.md-meta-block { font-size: .8rem; min-height: .8rem; white-space: pre-wrap; background: #ccc; display: block; overflow-x: hidden; }
+#write input[type=checkbox] { cursor: pointer; width: inherit; height: inherit; }
+.footnotes { opacity: .8; font-size: .9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes-area { color: #888; margin-top: .714rem; padding-bottom: .143rem; }
+.md-toc { margin-left: -20px; margin-right: -20px; }
+.md-toc-content { margin: 20px 0; padding: 0 20px; }
+.md-meta-block { display: block; font-size: .8rem; min-height: .8rem; }
+.md-task-list-item { list-style-type: none; }
+.md-task-list-item > input { margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+ul, ol { padding-left: 1.6rem; }
+blockquote { margin: 1rem 0; }
+sup.md-footnote a { text-decoration: none; }
+.reversefootnote { text-decoration: none; }
+
+/* ---------- Primary for Typora ---------- */
+/* ===========================================================================
+   Primary for Typora — Dark build
+   A Typora port of the Obsidian theme "Primary" by Cecilia May
+   (https://github.com/primary-theme/obsidian), released under GPL-3.0.
+
+   Generated from src/theme.css + src/palette-dark.css — do not edit dist/ by hand.
+   =========================================================================== */
+/* ===========================================================================
+   ██████╗ ██████╗ ██╗███╗   ███╗ █████╗ ██████╗ ██╗   ██╗
+   ██╔══██╗██╔══██╗██║████╗ ████║██╔══██╗██╔══██╗╚██╗ ██╔╝
+   ██████╔╝██████╔╝██║██╔████╔██║███████║██████╔╝ ╚████╔╝
+   ██╔═══╝ ██╔══██╗██║██║╚██╔╝██║██╔══██║██╔══██╗  ╚██╔╝
+   ██║     ██║  ██║██║██║ ╚═╝ ██║██║  ██║██║  ██║   ██║
+   ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝
+   for Typora
+   ---------------------------------------------------------------------------
+   Ported from the Obsidian theme "Primary" by Cecilia May
+   https://github.com/primary-theme/obsidian   (MIT / GPL-3.0)
+   Palette: Classic Original
+
+   Contents
+   ---------------------------------------------------------------------------
+   00 · Fonts
+   01 · Root variables            (per-mode palette)
+   02 · Base & document canvas
+   03 · Headings
+   04 · Paragraphs & text emphasis
+   05 · Links
+   06 · Lists & task lists
+   07 · Blockquote
+   08 · Callouts  (Typora alerts + HTML callouts)
+   09 · Tags
+   10 · Inline code
+   11 · Code fences & syntax highlighting
+   12 · Tables
+   13 · Horizontal rule
+   14 · Math, footnotes, images, TOC, front matter
+   15 · Sidebar, outline & file tree
+   16 · Title bar, menus & dialogs
+   17 · Scrollbars & selection
+   18 · Focus mode & print / export
+   =========================================================================== */
+
+
+/* ===========================================================================
+   00 · FONTS
+
+   Four families, all shipped in primary-fonts/ as woff2 so the theme renders
+   identically on a machine that has none of them installed.
+
+     Inter              Latin / Greek / Cyrillic — body, UI, headings
+     HarmonyOS Sans SC  CJK — everything Inter has no glyph for
+     Maple Mono NF CN   code (Latin + CJK on one 1:2 monospace grid)
+     Cascadia Code      code fallback, bundled with the Obsidian original
+
+   Each rule lists local() first: if the face is installed, the browser uses
+   the installed copy and never reads the bundled file. The woff2 is the
+   safety net, not the default. `python dev/pack_system_fonts.py` regenerates
+   those files from the system font directory.
+   =========================================================================== */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./primary-fonts/InterVar.woff2") format("woff2-variations"),
+       url("./primary-fonts/InterVar.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./primary-fonts/InterVar-Italic.woff2") format("woff2-variations"),
+       url("./primary-fonts/InterVar-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cascadia Code";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./primary-fonts/CascadiaCode.woff2") format("woff2-variations"),
+       url("./primary-fonts/CascadiaCode.woff2") format("woff2");
+}
+
+/* --- CJK body face -------------------------------------------------------
+   The upstream theme asks for "HarmonyOS Sans SC" by name, which only works
+   where it is installed. Declaring a face under that same family name makes
+   the bundled copy stand in when it is not. ---------------------------------------------------------------- */
+
+@font-face {
+  font-family: "HarmonyOS Sans SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("HarmonyOS Sans SC"),
+       local("HarmonyOS_Sans_SC"),
+       url("./primary-fonts/HarmonyOS-Sans-SC-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("HarmonyOS Sans SC Bold"),
+       local("HarmonyOS_Sans_SC_Bold"),
+       url("./primary-fonts/HarmonyOS-Sans-SC-Bold.woff2") format("woff2");
+}
+
+/* --- Code face -----------------------------------------------------------
+   Maple Mono NF CN keeps CJK inside the same monospace grid as the Latin, so
+   a Chinese comment inside a fence still lines up column for column. The
+   italic face is a real design, not a slant, and the theme italicises code
+   comments — hence it is bundled too. ------------------------------------- */
+
+@font-face {
+  font-family: "Maple Mono NF CN";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Maple Mono NF CN Regular"),
+       local("MapleMono-NF-CN-Regular"),
+       url("./primary-fonts/MapleMono-NF-CN-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Maple Mono NF CN";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Maple Mono NF CN Bold"),
+       local("MapleMono-NF-CN-Bold"),
+       url("./primary-fonts/MapleMono-NF-CN-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Maple Mono NF CN";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Maple Mono NF CN Italic"),
+       local("MapleMono-NF-CN-Italic"),
+       url("./primary-fonts/MapleMono-NF-CN-Italic.woff2") format("woff2");
+}
+
+
+/* ===========================================================================
+   01 · ROOT VARIABLES
+   =========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Typography ───────────────────────────────────────────────────────── */
+  /* Inter drives Latin/Greek/Cyrillic; every glyph it lacks — i.e. all CJK —
+     falls through to HarmonyOS Sans SC. Both names are declared against
+     bundled woff2 files in the 00 · Fonts section of the shared sheet, so this
+     stack resolves identically whether or not the fonts are installed. Swap
+     the first two families to let HarmonyOS drive the Latin text as well. */
+  --p-font-text: "Inter", "HarmonyOS Sans SC", -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Source Han Sans SC", "Noto Sans SC", "Helvetica Neue",
+                 Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  /* Maple Mono NF CN carries CJK in the same 1:2 monospace grid as the Latin,
+     so a Chinese comment inside a fence still lines up column for column. It
+     is bundled as well; "Maple Mono NF" and Cascadia Code stay in the stack as
+     fallbacks for glyphs it has no design for. */
+  --p-font-mono: "Maple Mono NF CN", "Maple Mono NF", "Cascadia Code",
+                 "Cascadia Mono", ui-monospace, SFMono-Regular, "SF Mono",
+                 Menlo, Consolas, "Liberation Mono",
+                 "Microsoft YaHei Mono", monospace;
+
+  /* ── Grayscale ramp (Primary · Classic Original, dark) ────────────────── */
+  --p-gray-10:  hsl(32, 48%, 85%);
+  --p-gray-20:  hsl(34, 39%, 74%);
+  --p-gray-30:  hsl(34, 31%, 68%);
+  --p-gray-40:  hsl(35, 27%, 55%);
+  --p-gray-50:  hsl(34, 24%, 46%);
+  --p-gray-60:  hsl(33, 27%, 33%);
+  --p-gray-70:  hsl(31, 27%, 25%);
+  --p-gray-80:  hsl(28, 22%, 19%);
+  --p-gray-90:  hsl(33, 20%, 17%);
+  --p-gray-100: hsl(30, 19%, 15%);
+  --p-gray-110: hsl(30, 17%, 14%);
+  --p-gray-120: hsl(29, 16%, 13%);
+  --p-gray-130: hsl(24, 18%, 11%);
+  --p-gray-140: hsl(32, 21%, 9%);
+
+  --p-alpha-gray: hsla(34, 24%, 40%, 0.2);
+
+  /* ── Accent ramps ─────────────────────────────────────────────────────── */
+  --p-red-10: hsl(5, 94%, 73%);
+  --p-red-20: hsl(4, 91%, 67%);
+  --p-red-30: hsl(4, 88%, 61%);
+  --p-red-40: hsl(2, 75%, 52%);
+  --p-alpha-red: hsla(350, 84%, 63%, 0.2);
+
+  --p-orange-10: hsl(26, 85%, 58%);
+  --p-orange-20: hsl(24, 84%, 50%);
+  --p-orange-30: hsl(22, 82%, 47%);
+  --p-orange-40: hsl(19, 81%, 41%);
+  --p-alpha-orange: hsla(27, 100%, 50%, 0.2);
+
+  --p-yellow-10: hsl(43, 69%, 63%);
+  --p-yellow-20: hsl(42, 79%, 51%);
+  --p-yellow-30: hsl(40, 78%, 48%);
+  --p-yellow-40: hsl(38, 76%, 42%);
+  --p-alpha-yellow: hsla(44, 100%, 50%, 0.2);
+
+  --p-green-10: hsl(152, 51%, 54%);
+  --p-green-20: hsl(154, 57%, 42%);
+  --p-green-30: hsl(155, 78%, 29%);
+  --p-green-40: hsl(154, 75%, 26%);
+  --p-alpha-green: hsla(74, 69%, 44%, 0.2);
+
+  --p-blue-10: hsl(191, 54%, 62%);
+  --p-blue-20: hsl(194, 59%, 56%);
+  --p-blue-30: hsl(197, 48%, 49%);
+  --p-blue-40: hsl(201, 45%, 40%);
+  --p-alpha-blue: hsla(186, 64%, 46%, 0.2);
+
+  --p-purple-10: hsl(242, 52%, 69%);
+  --p-purple-20: hsl(241, 45%, 57%);
+  --p-purple-30: hsl(239, 45%, 51%);
+  --p-purple-40: hsl(238, 47%, 48%);
+  --p-alpha-purple: hsla(236, 100%, 72%, 0.2);
+
+  /* ── Semantic colours (brightened for dark surfaces) ──────────────────── */
+  --p-color-red:    hsl(4, 88%, 61%);
+  --p-color-orange: hsl(26, 85%, 58%);
+  --p-color-yellow: hsl(43, 69%, 63%);
+  --p-color-green:  hsl(152, 51%, 54%);
+  --p-color-cyan:   hsl(191, 54%, 62%);
+  --p-color-blue:   hsl(194, 59%, 56%);
+  --p-color-purple: hsl(242, 52%, 69%);
+  --p-color-pink:   hsl(351, 55%, 72%);
+
+  /* ── Surfaces & text ──────────────────────────────────────────────────── */
+  --p-bg:            var(--p-gray-100);
+  --p-bg-alt:        var(--p-gray-110);
+  --p-bg-secondary:  var(--p-gray-120);
+  --p-bg-elevated:   var(--p-gray-90);
+  --p-border:        var(--p-gray-80);
+  --p-border-strong: var(--p-gray-70);
+  --p-text:          var(--p-gray-20);
+  --p-text-muted:    var(--p-gray-40);
+  --p-text-faint:    var(--p-gray-50);
+  --p-text-title:    var(--p-gray-10);
+  --p-heading-rule:  var(--p-gray-80);
+
+  --p-selection-bg:  hsla(34, 24%, 40%, 0.5);
+  --p-selection-fg:  var(--p-gray-10);
+  --p-focus-dim:     var(--p-gray-60);
+
+  /* ── UI surfaces (mode-aware: these invert in the dark build) ─────────── */
+  --p-raised-bg:      var(--p-gray-90);   /* menus, dialogs, front matter, TOC */
+  --p-hover-bg:       var(--p-gray-80);   /* hovered rows and menu items       */
+  --p-active-bg:      var(--p-gray-80);   /* selected file / outline entry     */
+  --p-soft-bg:        var(--p-gray-110);  /* buttons, kbd, footnote chips      */
+  --p-soft-bg-hover:  var(--p-gray-90);
+  --p-subtle-hover:   rgba(255, 255, 255, 0.055);
+  --p-checkbox-bg:    var(--p-gray-130);
+  --p-char-color:     var(--p-gray-60);   /* **, ##, `` marker characters      */
+  --p-marker:         var(--p-gray-50);   /* list bullets                      */
+
+  /* ── Text emphasis ────────────────────────────────────────────────────── */
+  --p-bold:         var(--p-red-30);
+  --p-italic:       var(--p-blue-20);
+  --p-bold-italic:  var(--p-gray-10);
+  --p-strike:       var(--p-gray-40);
+
+  --p-hl-yellow: var(--p-alpha-yellow);
+  --p-hl-red:    var(--p-alpha-red);
+  --p-hl-blue:   var(--p-alpha-blue);
+  --p-hl-purple: var(--p-alpha-purple);
+
+  /* ── Links ────────────────────────────────────────────────────────────── */
+  --p-link:                  var(--p-red-20);
+  --p-link-hover:            var(--p-red-10);
+  --p-link-decoration:       hsla(4, 91%, 67%, 0.22);
+  --p-link-hover-decoration: hsla(5, 94%, 73%, 0.22);
+  --p-link-ochre:            var(--p-yellow-20);
+  --p-link-external:         var(--p-green-20);
+
+  /* ── Lists ────────────────────────────────────────────────────────────── */
+  --p-checkbox-border: var(--p-gray-60);
+  --p-checkbox-border-hover: var(--p-gray-50);
+
+  /* ── Blockquote ───────────────────────────────────────────────────────── */
+  --p-quote-bg:     var(--p-gray-120);
+  --p-quote-border: var(--p-gray-80);
+
+  /* ── Tags ─────────────────────────────────────────────────────────────── */
+  --p-tag-fg:            var(--p-blue-30);
+  --p-tag-fg-hover:      var(--p-blue-20);
+  --p-tag-bg:            rgba(0, 0, 0, 0.3);
+  --p-tag-border:        rgba(0, 0, 0, 0.25);
+  --p-tag-border-hover:  rgba(0, 0, 0, 0.35);
+
+  --p-pill1-fg: var(--p-yellow-20); --p-pill1-bg: var(--p-alpha-yellow);
+  --p-pill2-fg: var(--p-red-20);    --p-pill2-bg: var(--p-alpha-red);
+  --p-pill3-fg: var(--p-blue-20);   --p-pill3-bg: var(--p-alpha-blue);
+
+  /* ── Callouts ─────────────────────────────────────────────────────────── */
+  --p-callout-opacity:     32.5%;
+  --p-callout-icon-filter: brightness(1);
+
+  --p-callout-body: color-mix(in srgb, var(--p-gray-110) 50%, var(--p-gray-100));
+
+  --p-callout-title-shadow: inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25),
+                            inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  --p-callout-body-shadow:  inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+                            inset 0 -5px 3px 0 rgba(0, 0, 0, 0.3);
+
+  /* Primary's native callout hues */
+  --p-callout-general-rgb:   182, 196, 182;
+  --p-callout-note-rgb:      200, 175, 155;
+  --p-callout-abstract-rgb:   34, 152, 225;
+  --p-callout-summary-rgb:   234, 181,  52;
+  --p-callout-tldr-rgb:      240, 180, 225;
+  --p-callout-info-rgb:       71, 162, 187;
+  --p-callout-todo-rgb:       58, 173, 252;
+  --p-callout-tip-rgb:        70, 206, 185;
+  --p-callout-important-rgb: 246, 113, 118;
+  --p-callout-success-rgb:    87, 200,  83;
+  --p-callout-question-rgb:  130, 190, 235;
+  --p-callout-help-rgb:      250, 128,  96;
+  --p-callout-warning-rgb:   255, 161,  32;
+  --p-callout-caution-rgb:   226,  72,  86;
+  --p-callout-fail-rgb:      226,  72,  86;
+  --p-callout-danger-rgb:    226,  72,  86;
+  --p-callout-bug-rgb:       153,  93, 133;
+  --p-callout-example-rgb:   216, 141, 130;
+  --p-callout-quote-rgb:     173, 214, 171;
+  --p-callout-cite-rgb:      237, 217, 162;
+
+  /* ── Inline code & fences ─────────────────────────────────────────────── */
+  --p-inline-code-fg: var(--p-red-20);
+  --p-inline-code-bg: var(--p-gray-130);
+
+  --p-code-bg:     var(--p-gray-110);
+  --p-code-normal: var(--p-text-muted);
+
+  /* Syntax palette, sampled from Primary's own rendering */
+  --p-syn-keyword:     var(--p-color-pink);
+  --p-syn-value:       var(--p-purple-10);
+  --p-syn-def:         var(--p-text-muted);
+  --p-syn-normal:      var(--p-text-muted);
+  --p-syn-property:    var(--p-blue-10);
+  --p-syn-function:    var(--p-yellow-10);
+  --p-syn-operator:    var(--p-color-red);
+  --p-syn-comment:     var(--p-gray-50);
+  --p-syn-string:      var(--p-green-10);
+  --p-syn-string2:     var(--p-orange-10);
+  --p-syn-tag:         var(--p-red-20);
+  --p-syn-punctuation: var(--p-text-muted);
+  --p-syn-faint:       var(--p-gray-60);
+  --p-syn-error:       var(--p-color-red);
+
+  /* ── Tables ───────────────────────────────────────────────────────────── */
+  --p-table-bg:     var(--p-gray-120);
+  --p-table-header: var(--p-gray-130);
+  --p-table-alt:    var(--p-gray-130);
+  --p-table-hover:  var(--p-gray-90);
+
+  /* ── Shadows ──────────────────────────────────────────────────────────── */
+  --p-shadow-s: 0 1px 2px rgba(0, 0, 0, 0.28),
+                0 3px 7px rgba(0, 0, 0, 0.22),
+                0 14px 28px rgba(0, 0, 0, 0.18);
+  --p-shadow-l: 0 2px 8px rgba(0, 0, 0, 0.42),
+                0 8px 26px rgba(0, 0, 0, 0.34),
+                0 28px 70px rgba(0, 0, 0, 0.3);
+  --p-shadow-callout: inset 0 0 0 1px rgba(0, 0, 0, 0.18),
+                      0 2px 6px 0 rgba(0, 0, 0, 0.28);
+  --p-shadow-code: 0 1px 3px rgba(0, 0, 0, 0.3),
+                   0 1px 8px rgba(0, 0, 0, 0.18);
+
+  /* ======================================================================
+     Typora's own theme hooks
+     ====================================================================== */
+  --bg-color:                  var(--p-bg);
+  --text-color:                var(--p-text);
+  --select-text-bg-color:      var(--p-selection-bg);
+  --select-text-font-color:    var(--p-selection-fg);
+
+  --side-bar-bg-color:         var(--p-bg-secondary);
+  --control-text-color:        var(--p-gray-30);
+  --control-text-hover-color:  var(--p-text);
+  --item-hover-bg-color:       var(--p-gray-110);
+  --item-hover-text-color:     var(--p-text-title);
+
+  --active-file-bg-color:      var(--p-gray-110);
+  --active-file-text-color:    var(--p-text-title);
+  --active-file-border-color:  var(--p-gray-70);
+  --window-border:             none;
+  --focus-ring-color:          var(--p-alpha-gray);
+
+  --primary-color:             var(--p-gray-70);
+  --primary-btn-border-color:  var(--p-gray-60);
+  --primary-btn-text-color:    var(--p-gray-10);
+
+  --search-select-bg-color:    var(--p-yellow-40);
+  --search-select-text-color:  var(--p-gray-140);
+
+  --md-char-color:             var(--p-gray-60);
+  --meta-content-color:        var(--p-gray-40);
+  --heading-char-color:        var(--p-gray-60);
+
+  --table-border-color:        var(--p-border);
+  --panel-border-color:        var(--p-border);
+  --color-popover-bg-color:    var(--p-gray-110);
+  --rawblock-edit-panel-bd:    var(--p-border);
+  --active-toggle-btn-color:   var(--p-gray-60);
+
+  --monospace: var(--p-font-mono);
+}
+
+
+/* ===========================================================================
+   02 · BASE & DOCUMENT CANVAS
+   =========================================================================== */
+
+html {
+  font-size: 16px;
+  background-color: var(--p-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--p-font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 450;                       /* Primary's signature "medium-light" body weight */
+  font-feature-settings: "calt" 1, "case" 0, "ccmp" 1, "ss03" 1,
+                        "cv01" 1, "cv05" 1, "cv06" 1, "cv08" 0,
+                        "cv11" 1, "cv12" 0, "cv13" 0;
+  color: var(--p-text);
+  background-color: var(--p-bg);
+  caret-color: var(--p-text-muted);
+}
+
+/* Writing column — Primary uses a 40rem reading measure */
+#write {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 2.25rem 2.5rem 8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 450;
+  color: var(--p-text);
+  background-color: var(--p-bg);
+  word-wrap: break-word;
+}
+
+@media only screen and (min-width: 1400px) {
+  #write { max-width: 48rem; }
+}
+
+/* Typora's own canvas layer */
+content,
+#typora-source,
+.typora-sourceview-on #toggle-sourceview-btn {
+  background-color: var(--p-bg);
+  color: var(--p-text);
+}
+
+#write > ul:first-child,
+#write > ol:first-child { margin-top: 1.75rem; }
+
+#write p { margin: 0.85rem 0; }
+
+/* Selection */
+::selection,
+.in-text-selection,
+.CodeMirror-selected,
+.CodeMirror-focused .CodeMirror-selected {
+  background: var(--p-selection-bg);
+  color: var(--p-selection-fg);
+}
+
+/* Editing mode marker characters (**, ##, `) */
+.md-meta,
+.md-formatting,
+.md-char {
+  color: var(--p-char-color) !important;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Comments written with %%...%% stay quiet
+   --------------------------------------------------------------------------- */
+.md-comment {
+  color: var(--p-text-faint);
+  opacity: 0.65;
+}
+
+
+/* ===========================================================================
+   03 · HEADINGS
+   Primary: semibold (650), warm deep brown, generous breathing room.
+   =========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  font-family: var(--p-font-text);
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--p-text-title);
+  cursor: text;
+  -webkit-font-feature-settings: "calt" 1, "ss03" 1;
+}
+
+h1 {
+  font-size: 1.9rem;
+  margin: 2.4rem 0 1.1rem;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.1rem 0 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin: 1.8rem 0 0.7rem;
+}
+
+h4 {
+  font-size: 1.08rem;
+  margin: 1.5rem 0 0.55rem;
+}
+
+h5 {
+  font-size: 0.98rem;
+  margin: 1.35rem 0 0.5rem;
+  color: var(--p-text-muted);
+}
+
+h6 {
+  font-size: 0.88rem;
+  margin: 1.25rem 0 0.45rem;
+  color: var(--p-text-muted);
+}
+
+#write > h1:first-child,
+#write > h2:first-child,
+#write > h3:first-child,
+#write > h4:first-child { margin-top: 0.6rem; }
+
+h1 code, h2 code, h3 code,
+h4 code, h5 code, h6 code { font-size: inherit; }
+
+h1 tt, h2 tt, h3 tt,
+h4 tt, h5 tt, h6 tt { font-size: inherit; }
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor { text-decoration: none; }
+
+
+/* ===========================================================================
+   04 · PARAGRAPHS & TEXT EMPHASIS
+   Bold = terracotta red · Italic = slate blue · Bold+italic = near-black
+   =========================================================================== */
+
+#write strong,
+#write b,
+.cm-strong {
+  font-weight: 700;
+  color: var(--p-bold);
+}
+
+#write em,
+#write i,
+.cm-em {
+  font-style: italic;
+  font-weight: 450;
+  color: var(--p-italic);
+}
+
+#write strong em,
+#write em strong,
+.cm-strong.cm-em,
+.cm-em.cm-strong {
+  color: var(--p-bold-italic);
+  font-weight: 700;
+  font-style: italic;
+}
+
+#write del,
+#write s,
+.cm-strikethrough {
+  color: var(--p-strike);
+  text-decoration-color: var(--p-strike);
+}
+
+#write u { color: var(--p-text); }
+
+/* ==highlight== — Primary ships three tints: plain / bold / italic */
+#write mark,
+.cm-highlight {
+  background-color: var(--p-hl-yellow);
+  color: var(--p-text);
+  padding: 0.06em 0.3em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+#write strong mark,
+#write mark strong,
+.cm-highlight.cm-strong {
+  background-color: var(--p-hl-red);
+  color: var(--p-text);
+  font-weight: 700;
+}
+
+#write em mark,
+#write mark em,
+.cm-highlight.cm-em {
+  background-color: var(--p-hl-blue);
+  color: var(--p-text);
+}
+
+#write strong em mark,
+#write em strong mark,
+.cm-highlight.cm-em.cm-strong {
+  background-color: var(--p-hl-purple);
+  color: var(--p-text);
+}
+
+/* Keyboard keys */
+#write kbd {
+  font-family: var(--p-font-mono);
+  font-size: 0.82em;
+  color: var(--p-red-10);
+  background: var(--p-soft-bg);
+  border: none;
+  border-radius: 4px;
+  padding: 0.16em 0.5em;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05),
+              inset 0 -2px 0 0 rgba(0, 0, 0, 0.07);
+  white-space: nowrap;
+}
+
+/* <sub> / <sup> */
+#write sub, #write sup { font-size: 0.75em; }
+
+
+/* ===========================================================================
+   05 · LINKS
+   External anchors = Primary red · wiki-style links = ochre · resolved = green
+   Underlines are intentionally soft (22% alpha) and 1.5px thick.
+   =========================================================================== */
+
+#write a,
+#write a:visited {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-decoration-color: var(--p-link-decoration);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+#write a:hover {
+  color: var(--p-link-hover);
+  text-decoration-color: var(--p-link-hover-decoration);
+}
+
+#write a:active { opacity: 0.5; }
+
+/* Bare URL that Typora auto-links */
+#write .md-url,
+.cm-url { color: var(--p-link-external); }
+
+/* Wiki / internal links  [[note]]  and  #anchor */
+#write a[href^="#"] { color: var(--p-link-ochre); }
+
+/* Mail links read as "external" */
+#write a[href^="mailto:"] { color: var(--p-link-external); }
+
+
+/* ===========================================================================
+   06 · LISTS & TASK LISTS
+   =========================================================================== */
+
+#write ul,
+#write ol {
+  margin: 0.75rem 0;
+  padding-left: 1.6rem;
+}
+
+#write li { margin: 0.32rem 0; }
+
+#write li > ul,
+#write li > ol { margin: 0.3rem 0; }
+
+#write ul li::marker { color: var(--p-marker); }
+#write ol li::marker { color: var(--p-text-muted); font-weight: 550; }
+
+#write ul ul li::marker { color: var(--p-red-20); }
+#write ul ul ul li::marker { color: var(--p-blue-20); }
+
+/* Task list ---------------------------------------------------------------- */
+.md-task-list-item { position: relative; list-style: none; }
+.task-list-item.md-task-list-item { padding-left: 0; }
+
+/* The `#write` prefix is load-bearing: base.css carries
+   `#write input[type=checkbox] { width: inherit; height: inherit }`, and an ID
+   selector outranks any class-based rule. Once `appearance: none` is applied
+   the input is a replaced element with zero intrinsic size, so losing the
+   width/height collapses the box to a 1px speck. */
+#write .md-task-list-item > input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  width: 1.02em;
+  height: 1.02em;
+  margin: 0 0 0 -1.45em;
+  border: 1px solid var(--p-checkbox-border);
+  border-radius: 4px;
+  background: var(--p-checkbox-bg);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+#write .md-task-list-item > input[type="checkbox"]:hover {
+  border-color: var(--p-checkbox-border-hover);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+#write .md-task-list-item > input[type="checkbox"]:checked {
+  background: var(--p-green-30);
+  border-color: var(--p-green-30);
+}
+
+#write .md-task-list-item > input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 0.34em;
+  top: 0.14em;
+  width: 0.26em;
+  height: 0.52em;
+  border: solid var(--p-gray-10);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.task-list-done {
+  color: var(--p-strike);
+  text-decoration: line-through;
+}
+
+.task-list-not-done { color: var(--p-text); }
+
+/* Alternative Markdown checkboxes (Obsidian style):  - [x]  - [/]  - [!]  ... */
+.md-task-list-item.task-list-done > p { text-decoration: line-through; }
+
+
+/* ===========================================================================
+   07 · BLOCKQUOTE
+   =========================================================================== */
+
+#write blockquote {
+  margin: 1.1rem 0;
+  padding: 0.7rem 1.15rem 0.7rem 1.25rem;
+  color: var(--p-text);
+  background: var(--p-quote-bg);
+  border-left: 2px solid var(--p-quote-border);
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.03);
+}
+
+#write blockquote > *:first-child { margin-top: 0; }
+#write blockquote > *:last-child { margin-bottom: 0; }
+#write blockquote blockquote { margin: 0.6rem 0; }
+
+/* Blockquote text emphasis keeps its own palette */
+#write blockquote strong { color: var(--p-bold); }
+#write blockquote em { color: var(--p-italic); }
+
+
+/* ===========================================================================
+   08 · CALLOUTS
+   ---------------------------------------------------------------------------
+   A. Native Typora alerts   > [!NOTE] / [!TIP] / [!IMPORTANT] / [!WARNING] / [!CAUTION]
+   B. Full Obsidian callouts via raw HTML block (see README):
+        <div class="callout" data-callout="info" data-callout-title="自定义标题">
+        …content…
+        </div>
+   =========================================================================== */
+
+/* ---- A. Native alerts ---------------------------------------------------- */
+
+.md-alert {
+  --callout-rgb: var(--p-callout-note-rgb);
+  position: relative;
+  margin: 1.25rem 0;
+  padding: 0;
+  /* Typora's own base.css ships a GitHub-style bar on alerts:
+       .md-alert { border-left: .25em solid #000 }
+       .md-alert.md-alert-note { border-left-color: #0969da }   (etc.)
+     Primary's callout is a rounded tinted card with no side rule, so the
+     stray line has to be cancelled here — it is not ours to style. */
+  border: none;
+  background-color: color-mix(in srgb,
+                    rgb(var(--callout-rgb)) var(--p-callout-opacity),
+                    var(--p-bg));
+  border-radius: 8px;
+  box-shadow: var(--p-shadow-callout);
+  overflow: hidden;
+}
+
+/* Title row — `#write` prefixes are needed to outrank `#write p { margin }` */
+#write .md-alert > p:first-child {
+  margin: 0;
+  padding: 0.68rem 1.15rem;
+  font-weight: 650;
+  color: var(--p-text);
+  box-shadow: var(--p-callout-title-shadow);
+  background: transparent;
+}
+
+#write .md-alert > p:first-child .md-alert-text { color: var(--p-text); }
+
+/* Body */
+#write .md-alert > p:first-child ~ * {
+  background-color: var(--p-callout-body);
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+  padding-top: 0.32rem;
+  padding-bottom: 0.32rem;
+}
+
+#write .md-alert > *:nth-child(2) { padding-top: 0.7rem; }
+
+#write .md-alert > p:first-child ~ *:last-child {
+  padding-bottom: 0.95rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: var(--p-callout-body-shadow);
+}
+
+#write .md-alert > p:first-child ~ ul,
+#write .md-alert > p:first-child ~ ol {
+  padding-left: 2.7rem;
+}
+
+#write .md-alert > p:first-child ~ ul:last-child,
+#write .md-alert > p:first-child ~ ol:last-child { padding-bottom: 0.95rem; }
+
+#write .md-alert > p:first-child ~ pre.md-fences {
+  margin: 0.5rem 1.15rem 0.5rem;
+  padding-left: 0.6rem;
+  background-color: var(--p-callout-body) !important;
+  box-shadow: none;
+}
+
+#write .md-alert > p:first-child ~ table { margin: 0.55rem 0; }
+
+/* The "[!NOTE]" marker only shows while editing */
+.md-alert .md-meta { color: var(--p-text-faint); font-size: 0.85em; }
+
+/* Alert icon + label — Primary keeps the title in text colour and lets the
+   icon carry the callout hue. */
+.md-alert-text-container svg,
+.md-alert-text svg {
+  fill: rgb(var(--callout-rgb));
+  opacity: 1;
+  filter: var(--p-callout-icon-filter);
+}
+
+.md-alert-text {
+  /* base.css forces `.md-alert-text { font-size: .9rem }` (GitHub's smaller
+     alert heading). Primary keeps the title at body size. */
+  font-size: 1em;
+  font-weight: 650 !important;
+  text-transform: none;
+  color: var(--p-text) !important;
+}
+
+/* Type colours — mapped onto Primary's own callout palette --------------- */
+.md-alert-note     { --callout-rgb: var(--p-callout-note-rgb); }
+.md-alert-tip      { --callout-rgb: var(--p-callout-tip-rgb); }
+.md-alert-important{ --callout-rgb: var(--p-callout-important-rgb); }
+.md-alert-warning  { --callout-rgb: var(--p-callout-warning-rgb); }
+.md-alert-caution  { --callout-rgb: var(--p-callout-caution-rgb); }
+
+
+/* ---- B. Full Obsidian-style callouts through raw HTML -------------------- */
+
+.callout {
+  --callout-color: 182, 196, 182;
+  position: relative;
+  margin: 1.25rem 0;
+  padding: 0;
+  background-color: color-mix(in srgb,
+                    rgb(var(--callout-color)) var(--p-callout-opacity),
+                    var(--p-bg));
+  border-radius: 8px;
+  box-shadow: var(--p-shadow-callout);
+  overflow: hidden;
+}
+
+.callout-title {
+  padding: 0.68rem 1.15rem;
+  font-weight: 650;
+  color: var(--p-text);
+  box-shadow: var(--p-callout-title-shadow);
+}
+
+.callout-title::before {
+  content: "";
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  margin-right: 0.55em;
+  border-radius: 50%;
+  background: rgb(var(--callout-color));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.callout-content {
+  background-color: var(--p-callout-body);
+  padding: 0.7rem 1.15rem 0.95rem;
+  box-shadow: var(--p-callout-body-shadow);
+}
+
+#write .callout-content > *:first-child { margin-top: 0; }
+#write .callout-content > *:last-child { margin-bottom: 0; }
+#write .callout-content p { margin: 0.5rem 0; }
+
+#write .callout-title { margin: 0; }
+
+.callout[data-callout="note"]      { --callout-color: var(--p-callout-note-rgb); }
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="tldr"]      { --callout-color: var(--p-callout-abstract-rgb); }
+.callout[data-callout="info"]      { --callout-color: var(--p-callout-info-rgb); }
+.callout[data-callout="todo"]      { --callout-color: var(--p-callout-todo-rgb); }
+.callout[data-callout="tip"],
+.callout[data-callout="hint"]      { --callout-color: var(--p-callout-tip-rgb); }
+.callout[data-callout="important"] { --callout-color: var(--p-callout-important-rgb); }
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"]      { --callout-color: var(--p-callout-success-rgb); }
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"]       { --callout-color: var(--p-callout-question-rgb); }
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] { --callout-color: var(--p-callout-warning-rgb); }
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="missing"]   { --callout-color: var(--p-callout-fail-rgb); }
+.callout[data-callout="danger"],
+.callout[data-callout="error"]     { --callout-color: var(--p-callout-danger-rgb); }
+.callout[data-callout="bug"]       { --callout-color: var(--p-callout-bug-rgb); }
+.callout[data-callout="example"]   { --callout-color: var(--p-callout-example-rgb); }
+.callout[data-callout="quote"],
+.callout[data-callout="cite"]      { --callout-color: var(--p-callout-quote-rgb); }
+
+
+/* ===========================================================================
+   09 · TAGS
+   ---------------------------------------------------------------------------
+   Typora has no hashtag syntax, so use the bundled span:
+       <span class="tag">#primary-features</span>
+   Add  .tag-1 / .tag-2 / .tag-3  for Primary's three alternating pill tints.
+   =========================================================================== */
+
+#write .tag,
+.md-tag-pill {
+  display: inline-block;
+  font-size: 0.86em;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--p-tag-fg);
+  background: var(--p-tag-bg);
+  border-radius: 1em;
+  padding: 0.06em 0.72em;
+  margin: 0 0.1em;
+  white-space: nowrap;
+  text-decoration: none;
+  box-shadow: inset 0 -0.1em 0 0 rgba(0, 0, 0, 0.08),
+              inset 0 0 0 1px var(--p-tag-border);
+  transition: color 0.12s ease, box-shadow 0.12s ease;
+}
+
+#write .tag:hover,
+.md-tag-pill:hover {
+  color: var(--p-tag-fg-hover);
+  box-shadow: inset 0 -0.1em 0 0 rgba(0, 0, 0, 0.08),
+              inset 0 0 0 1px var(--p-tag-border-hover),
+              0 0 0 3px rgba(0, 0, 0, 0.03);
+  text-decoration: none;
+}
+
+/* Alternating pill palette (Primary's --pill-tag-1/2/3) */
+#write .tag-1, .md-tag-pill.tag-1 {
+  color: var(--p-pill1-fg); background: var(--p-pill1-bg);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+#write .tag-2, .md-tag-pill.tag-2 {
+  color: var(--p-pill2-fg); background: var(--p-pill2-bg);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+#write .tag-3, .md-tag-pill.tag-3 {
+  color: var(--p-pill3-fg); background: var(--p-pill3-bg);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* A wall of tags written as an HTML block still lines up nicely */
+#write p > .tag:only-child { margin-right: 0.3em; }
+
+
+/* ===========================================================================
+   10 · INLINE CODE
+   =========================================================================== */
+
+#write code,
+#write tt,
+.md-code,
+.cm-inline-code {
+  font-family: var(--p-font-mono);
+  font-size: 0.87em;
+  font-weight: 450;
+  color: var(--p-inline-code-fg);
+  background: var(--p-inline-code-bg);
+  border-radius: 4px;
+  padding: 0.14em 0.4em;
+  border: none;
+  white-space: pre-wrap;
+  font-feature-settings: "calt" 1, "ss01" 1, "ss02" 1, "ss19" 1, "zero" 1;
+}
+
+#write h1 code, #write h2 code, #write h3 code,
+#write h4 code, #write h5 code, #write h6 code { font-size: 0.85em; }
+
+#write a code { color: inherit; }
+
+/* Inline code inside a heading shouldn't inherit the heading colour */
+#write pre code { font-size: inherit; }
+
+
+/* ===========================================================================
+   11 · CODE FENCES & SYNTAX HIGHLIGHTING
+   =========================================================================== */
+
+pre.md-fences,
+#write .md-fences,
+.md-fences-advanced {
+  position: relative;
+  font-family: var(--p-font-mono);
+  font-size: 0.86rem;
+  line-height: 1.62;
+  color: var(--p-code-normal);
+  background: var(--p-code-bg) !important;
+  border: none;
+  border-radius: 8px;
+  padding: 2.1rem 0.35rem 0.9rem;
+  margin: 1.35rem 0;
+  box-shadow: var(--p-shadow-code);
+  overflow: visible;
+}
+
+/* The always-visible language badge, like Primary's label */
+pre.md-fences:not(.md-fences-math):not(.md-fences-advanced)::after {
+  content: attr(lang);
+  position: absolute;
+  top: 0.62rem;
+  right: 1rem;
+  font-family: var(--p-font-mono);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--p-text-faint);
+  text-transform: none;
+  pointer-events: none;
+  opacity: 1;
+}
+
+pre.md-fences:not([lang])::after,
+pre.md-fences[lang=""]::after { content: ""; }
+
+pre.md-fences code { background: none; padding: 0; }
+
+/* Typora's own hover tooltip would double up with the badge above */
+.md-fences .code-tooltip,
+.md-fences .code-tooltip-content { display: none !important; }
+
+/* Fence chrome ------------------------------------------------------------- */
+.md-fences-adv-panel,
+.md-fences.md-fences-advanced .md-fences-adv-panel {
+  background: transparent;
+  border-top: 1px solid var(--p-border);
+}
+
+.CodeMirror {
+  background: transparent !important;
+  font-family: var(--p-font-mono);
+}
+
+.CodeMirror-gutters {
+  background: transparent !important;
+  border-right: none;
+}
+
+.CodeMirror-linenumber {
+  color: var(--p-text-faint);
+  padding-right: 0.9em;
+}
+
+.CodeMirror-cursor { border-left: 1.5px solid var(--p-text-muted); }
+
+.cm-s-inner.CodeMirror,
+.cm-s-inner .CodeMirror-gutters { background: transparent; }
+
+/* Line numbers column, when enabled */
+.md-fences.md-fences-with-lineno { padding-left: 0.2rem; }
+
+/* Overlay used for the "copy" button */
+#write .md-fences .md-fences-adv-panel .md-fences-adv-panel-btn,
+#write .code-tooltip { color: var(--p-text-muted); }
+
+/* --- Syntax palette — derived from Primary's colour ramp ------------------ */
+.cm-s-inner .cm-keyword    { color: var(--p-syn-keyword); }
+.cm-s-inner .cm-atom       { color: var(--p-syn-value); }
+.cm-s-inner .cm-number     { color: var(--p-syn-value); }
+.cm-s-inner .cm-def        { color: var(--p-syn-def); }
+.cm-s-inner .cm-variable   { color: var(--p-syn-normal); }
+.cm-s-inner .cm-variable-2 { color: var(--p-syn-property); }
+.cm-s-inner .cm-variable-3 { color: var(--p-syn-tag); }
+.cm-s-inner .cm-property   { color: var(--p-syn-property); }
+.cm-s-inner .cm-operator   { color: var(--p-syn-operator); }
+.cm-s-inner .cm-comment    { color: var(--p-syn-comment); font-style: italic; }
+.cm-s-inner .cm-string     { color: var(--p-syn-string); }
+.cm-s-inner .cm-string-2   { color: var(--p-syn-string2); }
+.cm-s-inner .cm-meta       { color: var(--p-syn-faint); }
+.cm-s-inner .cm-qualifier  { color: var(--p-syn-function); }
+.cm-s-inner .cm-builtin    { color: var(--p-syn-function); }
+.cm-s-inner .cm-bracket    { color: var(--p-syn-punctuation); }
+.cm-s-inner .cm-tag        { color: var(--p-syn-tag); }
+.cm-s-inner .cm-attribute  { color: var(--p-syn-function); }
+.cm-s-inner .cm-header     { color: var(--p-syn-normal); font-weight: 700; }
+.cm-s-inner .cm-quote      { color: var(--p-syn-string); }
+.cm-s-inner .cm-hr         { color: var(--p-syn-faint); }
+.cm-s-inner .cm-link       { color: var(--p-syn-string); text-decoration: none; }
+.cm-s-inner .cm-error      { color: var(--p-syn-error); }
+.cm-invalidchar            { color: var(--p-syn-error); }
+.cm-s-inner .cm-positive   { color: var(--p-green-30); }
+.cm-s-inner .cm-negative   { color: var(--p-red-30); }
+.cm-s-inner .cm-constant   { color: var(--p-purple-20); }
+.cm-s-inner .cm-defined    { color: var(--p-yellow-30); }
+
+/* Inside a fence, strong/em should not turn red/blue */
+.md-fences .cm-strong { color: inherit; font-weight: 700; }
+.md-fences .cm-em     { color: inherit; font-style: italic; }
+
+
+/* ===========================================================================
+   12 · TABLES
+   =========================================================================== */
+
+#write table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.3rem 0;
+  font-size: 0.94rem;
+  background: var(--p-table-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+#write thead,
+#write table tr th {
+  background: var(--p-table-header);
+  font-weight: 650;
+  color: var(--p-text);
+  border: none;
+}
+
+#write table tr th,
+#write table tr td {
+  padding: 0.5rem 0.85rem;
+  border: none;
+  border-bottom: 1px solid var(--p-border);
+  border-right: 1px solid var(--p-border);
+}
+
+#write table tr th:last-child,
+#write table tr td:last-child { border-right: none; }
+
+#write table tr:last-child td { border-bottom: none; }
+
+#write table tr:nth-child(2n) td { background: var(--p-table-alt); }
+
+#write table tr:hover td { background: var(--p-table-hover); }
+
+/* Typora renders the active table cells in edit mode */
+#write .md-table-fig .md-table,
+#write table.md-table { background: var(--p-table-bg); }
+
+figure > table { margin: 0; }
+
+
+/* ===========================================================================
+   13 · HORIZONTAL RULE
+   =========================================================================== */
+
+#write hr {
+  height: 1px;
+  border: none;
+  margin: 2.1rem 0;
+  background: linear-gradient(to right,
+              transparent, var(--p-border) 18%, var(--p-border) 82%, transparent);
+}
+
+
+/* ===========================================================================
+   14 · MATH · FOOTNOTES · IMAGES · TOC · FRONT MATTER
+   =========================================================================== */
+
+/* Math --------------------------------------------------------------------- */
+.md-mathjax-midline,
+#write .MathJax,
+#write .MathJax_Display { color: var(--p-text); }
+
+.md-math-block { margin: 1.2rem 0; }
+
+/* Footnotes ---------------------------------------------------------------- */
+sup.md-footnote {
+  font-size: 0.72em;
+  color: var(--p-link);
+  background: var(--p-soft-bg);
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+  font-weight: 550;
+}
+
+sup.md-footnote a,
+sup.md-footnote a:hover { color: inherit; text-decoration: none; }
+
+.footnotes {
+  font-size: 0.88rem;
+  color: var(--p-text-muted);
+  border-top: 1px solid var(--p-border);
+  padding-top: 0.8rem;
+  margin-top: 2rem;
+}
+
+.footnotes .md-fn-count { text-decoration: none; }
+
+/* Images ------------------------------------------------------------------- */
+#write .md-image img,
+#write img { border-radius: 3px; }
+
+.md-img-error { color: var(--p-red-30); }
+
+/* Table of contents -------------------------------------------------------- */
+.md-toc {
+  background: var(--p-raised-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0;
+  font-size: 0.92rem;
+}
+
+.md-toc-item { color: var(--p-text); }
+
+/* TOC anchors are `href="#..."` — keep them out of the ochre anchor colour */
+#write .md-toc a,
+#write .md-toc .md-toc-item,
+#write .md-toc .md-toc-inner {
+  color: var(--p-text);
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+
+#write .md-toc a:hover .md-toc-inner,
+#write .md-toc .md-toc-inner:hover {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-decoration-color: var(--p-link-decoration);
+}
+
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-inner:hover {
+  color: var(--p-link);
+  text-decoration: underline;
+  text-decoration-color: var(--p-link-decoration);
+}
+
+.md-toc-h1 .md-toc-inner { font-weight: 650; }
+.md-toc-h2 .md-toc-inner { margin-left: 1.2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 2.4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 3.6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 4.8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 6em; }
+
+/* YAML front matter -------------------------------------------------------- */
+pre.md-meta-block {
+  font-family: var(--p-font-mono);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--p-text-muted);
+  background: var(--p-raised-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 8px;
+  padding: 0.85rem 1.05rem;
+  margin-bottom: 1.6rem;
+  min-height: 0;
+  white-space: pre-wrap;
+  overflow-x: hidden;
+}
+
+/* Definition lists (Pandoc) ------------------------------------------------- */
+#write dl dt { font-weight: 650; color: var(--p-text-title); }
+#write dl dd { margin-left: 1.4em; color: var(--p-text-muted); }
+
+
+/* ===========================================================================
+   15 · SIDEBAR · OUTLINE & FILE TREE
+   =========================================================================== */
+
+#typora-sidebar,
+.sidebar-content,
+.sidebar-tabs {
+  background-color: var(--p-bg-secondary);
+  color: var(--p-text-muted);
+  border-right: 1px solid var(--p-border);
+  font-family: var(--p-font-text);
+  font-size: 0.87rem;
+}
+
+/* Tab strip */
+.sidebar-tab {
+  color: var(--p-text-faint);
+  border: none;
+  border-radius: 6px 6px 0 0;
+  font-weight: 550;
+}
+
+.sidebar-tab.active {
+  color: var(--p-text-title);
+  background: var(--p-bg-secondary);
+  border-bottom: 2px solid var(--p-text-muted);
+}
+
+.sidebar-tab:hover { color: var(--p-text); }
+
+/* File tree ---------------------------------------------------------------- */
+.file-node-content {
+  border-radius: 6px;
+  padding: 0.18rem 0.55rem;
+  color: var(--p-text-muted);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.file-node-content:hover {
+  background: var(--p-hover-bg);
+  color: var(--p-text);
+}
+
+.file-node-content.active,
+.file-node-content.active:hover {
+  background: var(--p-active-bg);
+  color: var(--p-text-title);
+  font-weight: 600;
+  box-shadow: inset 2px 0 0 0 var(--p-text-muted);
+}
+
+.file-node-icon,
+.file-node-open-state { color: var(--p-text-faint); }
+
+.file-list-item {
+  border-radius: 6px;
+  border: none;
+  color: var(--p-text-muted);
+}
+
+.file-list-item:hover { background: var(--p-hover-bg); }
+.file-list-item.active {
+  background: var(--p-active-bg);
+  color: var(--p-text-title);
+  font-weight: 600;
+}
+
+.file-list-item-file-name { color: inherit; }
+.file-list-item-file-ext-part { color: var(--p-text-faint); }
+.file-list-item-summary { color: var(--p-text-faint); }
+
+/* Outline ------------------------------------------------------------------ */
+.outline-content .outline-item {
+  border-radius: 6px;
+  color: var(--p-text-muted);
+}
+
+.outline-content .outline-item:hover {
+  background: var(--p-subtle-hover);
+  color: var(--p-text);
+}
+
+.outline-item-active > .outline-item,
+.outline-item-active > .outline-item:hover {
+  background: var(--p-active-bg) !important;
+  color: var(--p-text-title) !important;
+  font-weight: 600;
+}
+
+.outline-label { text-decoration: none; }
+.outline-expander { color: var(--p-text-faint); }
+
+.outline-h1 > .outline-item > .outline-label { font-weight: 650; }
+.outline-h2 > .outline-item > .outline-label { font-weight: 550; }
+
+/* Sidebar search ----------------------------------------------------------- */
+#typora-sidebar input,
+.sidebar-search input {
+  background: var(--p-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 6px;
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+  padding: 0.3rem 0.6rem;
+}
+
+#typora-sidebar input:focus,
+.sidebar-search input:focus {
+  border-color: var(--p-border-strong);
+  box-shadow: 0 0 0 3px var(--p-alpha-gray);
+  outline: none;
+}
+
+/* Find / replace panel ------------------------------------------------------ */
+#md-searchpanel,
+.searchpanel-search-option-btn {
+  background: var(--p-bg-secondary);
+  border-color: var(--p-border);
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+}
+
+#md-searchpanel input { color: var(--p-text); }
+
+
+/* ===========================================================================
+   16 · TITLE BAR · MENUS & DIALOGS
+   =========================================================================== */
+
+header,
+#top-titlebar {
+  background-color: var(--p-bg-secondary);
+  color: var(--p-text-faint);
+  font-family: var(--p-font-text);
+}
+
+#top-titlebar .title-text,
+#top-titlebar .typora-title { color: var(--p-text-muted); }
+
+/* Mega menu / preferences --------------------------------------------------- */
+#megamenu-content,
+.megamenu-menu,
+.megamenu-menu-panel {
+  background: var(--p-bg-secondary);
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+}
+
+.megamenu-menu-header,
+.megamenu-menu-title { color: var(--p-text-muted); }
+
+.megamenu-menu-list li a {
+  color: var(--p-text-muted);
+  border-radius: 6px;
+}
+
+.megamenu-menu-list li a:hover {
+  background: var(--p-hover-bg);
+  color: var(--p-text-title);
+}
+
+.megamenu-menu-list li a.active {
+  background: var(--p-active-bg);
+  color: var(--p-text-title);
+  font-weight: 600;
+}
+
+/* Context menus & dropdowns ------------------------------------------------- */
+.context-menu,
+.dropdown-menu,
+#spell-check-panel,
+.popover {
+  background: var(--p-raised-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 8px;
+  box-shadow: var(--p-shadow-l);
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+  font-size: 0.87rem;
+}
+
+.context-menu.dropdown-menu li > a,
+.dropdown-menu > li > a { color: var(--p-text); }
+
+.context-menu.dropdown-menu li > a:hover,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > .active > a {
+  background: var(--p-hover-bg);
+  color: var(--p-text-title);
+}
+
+/* Tooltips */
+#ty-tooltip,
+.ty-tooltip,
+.tooltip-inner {
+  background: var(--p-gray-130);
+  color: var(--p-gray-10);
+  border-radius: 6px;
+  font-family: var(--p-font-text);
+  font-size: 0.78rem;
+}
+
+/* Modal dialogs ------------------------------------------------------------- */
+.modal-content,
+.modal-dialog {
+  background: var(--p-raised-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 12px;
+  box-shadow: var(--p-shadow-l);
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+}
+
+.modal-header, .modal-footer { border-color: var(--p-border); }
+.modal-title { color: var(--p-text-title); font-weight: 650; }
+
+.btn, .btn-default {
+  background: var(--p-soft-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 6px;
+  color: var(--p-text);
+  font-family: var(--p-font-text);
+  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover, .btn-default:hover {
+  background: var(--p-soft-bg-hover);
+  color: var(--p-text-title);
+}
+
+.btn-primary {
+  background: var(--p-gray-100);
+  border-color: var(--p-gray-110);
+  color: var(--p-gray-10);
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: var(--p-gray-120);
+  border-color: var(--p-gray-120);
+  color: var(--p-gray-10);
+}
+
+/* Notification toasts ------------------------------------------------------- */
+#notice,
+.notification {
+  background: var(--p-raised-bg);
+  border: 1px solid var(--p-border);
+  border-radius: 8px;
+  color: var(--p-text);
+  box-shadow: var(--p-shadow-l);
+  font-family: var(--p-font-text);
+}
+
+
+/* ===========================================================================
+   17 · SCROLLBARS & SELECTION
+   =========================================================================== */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+
+::-webkit-scrollbar-track { background: transparent; }
+
+::-webkit-scrollbar-thumb {
+  background: var(--p-border);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--p-gray-70);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::selection, .in-text-selection {
+  background: var(--p-selection-bg);
+  color: var(--p-selection-fg);
+}
+
+
+/* ===========================================================================
+   18 · FOCUS MODE & PRINT / EXPORT
+   =========================================================================== */
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+  color: var(--p-focus-dim) !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) img {
+  opacity: 0.35;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container { color: var(--p-text); }
+
+.on-focus-mode .md-fences.md-focus .md-fences-adv-panel { opacity: 1; }
+
+/* Export & print ------------------------------------------------------------ */
+@media print {
+  html, body, #write { background: #ffffff !important; }
+
+  #write {
+    max-width: 100%;
+    padding: 0;
+    color: var(--p-text);
+  }
+
+  h1 { border-bottom-color: rgba(0, 0, 0, 0.15) !important; }
+
+  pre.md-fences,
+  #write blockquote,
+  .md-alert,
+  .callout {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #write a { color: var(--p-link); }
+}
+
+.typora-export #write { padding-left: 1rem; padding-right: 1rem; }
+
+
+/* ===========================================================================
+   OPTIONAL · Primary's signature paper texture
+   ---------------------------------------------------------------------------
+   The original theme ships an optional dotted / lined background pattern.
+   Un-comment one of the blocks below to enable it.
+   =========================================================================== */
+
+/*
+content, #write {
+  background-image: radial-gradient(circle, var(--p-gray-60) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 50px 50px;
+  background-position: 0 0;
+}
+*/
+
+/*
+content, #write {
+  background-image:
+    linear-gradient(to left, rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+    linear-gradient(to top,  rgba(0, 0, 0, 0.055) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+*/
+
+/* ---------- preview chrome ---------- */
+.pv-bar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: .75rem;
+  padding: .55rem 1rem;
+  font: 500 .8rem/1.4 "Inter", -apple-system, "Segoe UI", sans-serif;
+  color: var(--p-text-muted);
+  background: var(--p-bg-secondary);
+  border-bottom: 1px solid var(--p-border);
+}
+.pv-bar b { color: var(--p-text-title); font-weight: 650; }
+.pv-bar a { color: var(--p-link); text-decoration: none; }
+.pv-bar a:hover { text-decoration: underline; }
+.pv-spacer { flex: 1; }
+.pv-chip {
+  padding: .12rem .55rem; border-radius: 1em;
+  background: var(--p-tag-bg); color: var(--p-tag-fg);
+  box-shadow: inset 0 0 0 1px var(--p-tag-border);
+}
+body { background: var(--p-bg); }
+</style>
+</head>
+<body>
+<div class="pv-bar">
+  <b>Primary for Typora</b>
+  <span class="pv-chip">dark · 深色</span>
+  <span class="pv-spacer"></span>
+  <a href="preview-light.html">浅色</a>
+  <a href="preview-dark.html">深色</a>
+</div>
+<div id="write">
+<!-- ===================================================================
+     Demo body — mimics the HTML that Typora produces for a document.
+     Used by dev/make_preview.py to render dist/preview-*.html
+     =================================================================== -->
+
+<pre class="md-meta-block">title: Primary 主题移植
+author: Cecilia May · ported to Typora
+tags: [theme, obsidian, warm]</pre>
+
+<h1>Welcome to Primary</h1>
+
+<p>Primary is soft, chewy, comforting — like a chocolate chip cookie, or a warm
+brownie. It merges <strong>play</strong> with <em>work</em>, and it was ported here
+from the Obsidian theme of the same name.</p>
+
+<p>Fine-tuned to pixel and colour perfection, Primary aims to take away the need to
+think about customization, so that you can <strong><em>focus on what matters</em></strong>
+— the concepts, that link, this great idea. <u>Underlined text</u> stays quiet,
+<s>struck-through text steps back</s>, and <code>inline code</code> wears a warm
+little chip. Highlights come in three flavours: <mark>plain</mark>,
+<strong><mark>bold</mark></strong> and <em><mark>italic</mark></em>.</p>
+
+<p>Read more at <a href="https://primary-theme.github.io/start-here">the Primary
+documentation</a>, jump to <a href="#callouts">Callouts</a>, or mail
+<a href="mailto:hello@example.com">hello@example.com</a>.</p>
+
+<h2>Headings</h2>
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+
+<h2>Lists</h2>
+
+<ul>
+  <li>Bullet — the marker uses a muted clay tone
+    <ul>
+      <li>Second level turns terracotta
+        <ul><li>Third level turns slate blue</li></ul>
+      </li>
+    </ul>
+  </li>
+  <li>Another item</li>
+</ul>
+
+<ol>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+
+<ul>
+  <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="checked">functional but artistic experience</li>
+  <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="checked">exceptional-quality, down-to-the-finest details</li>
+  <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">timeless design</li>
+  <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">easily extensible, customizable</li>
+</ul>
+
+<h2>Blockquote</h2>
+
+<blockquote>
+  <p>Primary is an opinionated <strong>Obsidian</strong> theme that merges
+  <em>play</em> with work.</p>
+  <p>A second paragraph inside the same quote.</p>
+</blockquote>
+
+<h2 id="callouts">Callouts</h2>
+
+<p>Typora's five native alerts are mapped onto Primary's own callout palette —
+tinted header, cream body, one soft pixel of shadow.</p>
+
+<div class="md-alert md-alert-note">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span></span></p>
+  <p>Useful information that users should know, even when skimming.</p>
+</div>
+
+<div class="md-alert md-alert-tip">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-tip"><span class="md-alert-text-container" data-text="tip"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2a7 7 0 0 0-4 12.7V19h8v-4.3A7 7 0 0 0 12 2z"/></svg></span></span></p>
+  <p>Helpful advice for doing things better or more easily — the mint one.</p>
+</div>
+
+<div class="md-alert md-alert-important">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-important"><span class="md-alert-text-container" data-text="important"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.5L5.7 20 8 13.3 2 8.9h7.6z"/></svg></span></span></p>
+  <p>Key information users need to know to achieve their goal.</p>
+</div>
+
+<div class="md-alert md-alert-warning">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-warning"><span class="md-alert-text-container" data-text="warning"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3l10 18H2z"/></svg></span></span></p>
+  <p>Urgent info that needs immediate user attention to avoid problems.</p>
+</div>
+
+<div class="md-alert md-alert-caution">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-caution"><span class="md-alert-text-container" data-text="caution"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/></svg></span></span></p>
+  <p>Advises about risks or negative outcomes of certain actions.</p>
+</div>
+
+<p>For the full Obsidian set — including custom titles — drop in a raw HTML block:</p>
+
+<div class="callout" data-callout="info">
+  <div class="callout-title">Info</div>
+  <div class="callout-content"><p>Blue-green tinted, straight from Primary's own palette.</p></div>
+</div>
+
+<div class="callout" data-callout="question">
+  <div class="callout-title">Question · 这是自定义标题</div>
+  <div class="callout-content"><p>Anything Obsidian can do with <code>&gt; [!question]</code> works here.</p></div>
+</div>
+
+<div class="callout" data-callout="danger">
+  <div class="callout-title">Danger</div>
+  <div class="callout-content"><p>Reds and corals for the things you should not do.</p></div>
+</div>
+
+<div class="callout" data-callout="example">
+  <div class="callout-title">Example</div>
+  <div class="callout-content"><p>A dusty rose example block.</p></div>
+</div>
+
+<h2>Tags</h2>
+
+<p>
+  <span class="tag">#primary-features</span>
+  <span class="tag">#tags</span>
+  <span class="tag tag-1">#yellow-pill</span>
+  <span class="tag tag-2">#red-pill</span>
+  <span class="tag tag-3">#blue-pill</span>
+</p>
+
+<h2>中文排版</h2>
+
+<p>中文字形来自 <strong>HarmonyOS Sans SC</strong>，而拉丁字母、数字与标点仍由 <strong>Inter</strong> 渲染——Inter 覆盖不到的字符会自动回退到中文黑体字面，两者基线一致，混排不会跳字。这四个字体都已随主题打包成 woff2 放在 <code>primary-fonts/</code>，<strong>换一台没有安装这些字体的电脑打开，排版也不会变</strong>。</p>
+
+<p>正文里的<strong>加粗中文</strong>、<em>倾斜中文</em>、<code>行内中文代码</code>都跟随同一套配色：加粗偏陶土红，斜体偏石板蓝。行距保持 Primary 原有的松弛感，段落之间留白充裕，长段落阅读不吃力。</p>
+
+<p>代码块中的中文则由 <strong>Maple Mono NF CN</strong> 承担，等宽网格严格 2:1，中英文混排时纵向严格对齐：</p>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line">配置项      说明                    默认值</div><div class="CodeMirror-line">theme.name  主题名称                Primary</div><div class="CodeMirror-line">theme.mode  明暗模式 light / dark   light</div><div class="CodeMirror-line">font.cjk    中文字体                HarmonyOS Sans SC</div><div class="CodeMirror-line">font.mono   代码字体                Maple Mono NF CN</div></div></div></div></div></div></pre>
+
+<div class="md-alert md-alert-note">
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span></span></p>
+  <p>提示类告示块同样支持中文标题与正文，图标与配色不受文字语种影响。</p>
+</div>
+
+<h2>Code</h2>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line"><span class="cm-comment">// Generate a random number between 1 and 10</span></div><div class="CodeMirror-line"><span class="cm-keyword">function</span> <span class="cm-def">generateRandomNumber</span><span class="cm-bracket">()</span> <span class="cm-bracket">{</span></div><div class="CodeMirror-line">  <span class="cm-keyword">return</span> <span class="cm-variable">Math</span><span class="cm-operator">.</span><span class="cm-property">floor</span><span class="cm-bracket">(</span><span class="cm-variable">Math</span><span class="cm-operator">.</span><span class="cm-property">random</span><span class="cm-bracket">()</span> <span class="cm-operator">*</span> <span class="cm-number">10</span><span class="cm-bracket">)</span> <span class="cm-operator">+</span> <span class="cm-number">1</span><span class="cm-bracket">;</span></div><div class="CodeMirror-line"><span class="cm-bracket">}</span></div></div></div></div></div></div></pre>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="css"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line"><span class="cm-selector">.callout</span> <span class="cm-bracket">{</span></div><div class="CodeMirror-line">  <span class="cm-property">background</span><span class="cm-bracket">:</span> <span class="cm-keyword">color-mix</span><span class="cm-bracket">(</span><span class="cm-keyword">in srgb</span><span class="cm-bracket">,</span> <span class="cm-keyword">rgb</span><span class="cm-bracket">(</span><span class="cm-variable">var</span><span class="cm-bracket">(</span><span class="cm-operator">--callout-rgb</span><span class="cm-bracket">))</span> <span class="cm-number">32.5%</span><span class="cm-bracket">,</span> <span class="cm-variable">var</span><span class="cm-bracket">(</span><span class="cm-operator">--p-bg</span><span class="cm-bracket">));</span></div><div class="CodeMirror-line">  <span class="cm-property">border-radius</span><span class="cm-bracket">:</span> <span class="cm-number">8px</span><span class="cm-bracket">;</span></div><div class="CodeMirror-line"><span class="cm-bracket">}</span></div></div></div></div></div></div></pre>
+
+<h2>Table</h2>
+
+<table class="md-table">
+  <thead>
+    <tr><th>Token</th><th>Light</th><th>Dark</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>bold</code></td><td>terracotta</td><td>coral</td><td>emphasis</td></tr>
+    <tr><td><code>italic</code></td><td>slate blue</td><td>sky</td><td>asides</td></tr>
+    <tr><td><code>link</code></td><td>warm red</td><td>warm red</td><td>anchors</td></tr>
+    <tr><td><code>mark</code></td><td>three tints</td><td>three tints</td><td>highlight</td></tr>
+  </tbody>
+</table>
+
+<h2>Horizontal rule</h2>
+
+<hr>
+
+<h2>Table of contents</h2>
+
+<div class="md-toc">
+  <a class="md-toc-item md-toc-h1" href="#"><span class="md-toc-inner">Welcome to Primary</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Headings</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Callouts</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Tags</span></a>
+</div>
+
+<h2>Footnotes</h2>
+
+<p>Primary was voted Best Theme in Obsidian October 2021<sup class="md-footnote"><a href="#fn:1">1</a></sup>.</p>
+
+<div class="footnotes">
+  <hr>
+  <ol>
+    <li class="footnote-line"><a class="reversefootnote" href="#">1.</a> Obsidian October 2021, Best Theme category.</li>
+  </ol>
+</div>
+
+</div>
+</body>
+</html>

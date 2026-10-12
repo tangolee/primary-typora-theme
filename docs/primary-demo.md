@@ -21,8 +21,6 @@ Highlights come in three flavours: ==plain==, **==bold==** and *==italic==*.
 Read more at [the Primary documentation](https://github.com/primary-theme/obsidian),
 jump to [Callouts](#callouts), or mail <hello@example.com>.
 
-
-
 ## Headings
 
 ### Heading 3
@@ -75,7 +73,9 @@ tinted header, cream body, one soft pixel of shadow.
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-For the full Obsidian set — including custom titles — drop in a raw HTML block:
+For the full Obsidian set — including custom titles — drop in a raw HTML block.
+Typora strips `class` / `data-*` while rendering, so these four are styled **on
+export only**; inside the editor use the `> [!NOTE]` syntax above.
 
 <div class="callout" data-callout="info">
   <div class="callout-title">Info</div>
@@ -99,11 +99,14 @@ For the full Obsidian set — including custom titles — drop in a raw HTML blo
 
 ## Tags
 
-Typora has no hashtag syntax, so tags are written as a small inline span:
+Typora strips `class` from user HTML while rendering, so the pills hang off a
+Markdown link instead — point a link at `#tag` and it becomes a Primary pill:
 
-<span class="tag">#primary-features</span> <span class="tag">#tags</span>
-<span class="tag tag-1">#yellow-pill</span> <span class="tag tag-2">#red-pill</span>
-<span class="tag tag-3">#blue-pill</span>
+[#primary-features](#tag) [#tags](#tag) [#obsidian](#tag)
+
+Swap the target for one of the three tints:
+
+[#yellow-pill](#tag-1) [#red-pill](#tag-2) [#blue-pill](#tag-3)
 
 ## 中文排版
 

@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Typora](https://img.shields.io/badge/Typora-1.x-4d4d4d.svg)](https://typora.io)
 [![Fonts](https://img.shields.io/badge/fonts-4%20families%20bundled-2e7d32.svg)](#字体)
-[![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)](https://github.com/tangolee/primary-typora-theme/archive/refs/heads/main.zip)
+[![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)](https://github.com/tangolee/primary-typora-theme/releases/latest)
 
 [安装](#安装) · [截图](#截图) · [主题包含什么](#主题包含什么) · [光标动画](#光标动画) · [背景纹理](#背景纹理) · [自定义](#自定义) · [字体](#字体) · [仓库结构](#仓库结构) · [兼容性](#兼容性) · [许可](#许可)
 
@@ -25,6 +25,8 @@
 
 ### 获取文件
 
+**直接下发布包最省事：** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) —— 六个 CSS 文件和 `primary-fonts/`，27.8 MiB，没有别的东西，解压就能用。
+
 | 方式 | 做法 |
 | --- | --- |
 | **下载 ZIP** | [primary-typora-theme-main.zip](https://github.com/tangolee/primary-typora-theme/archive/refs/heads/main.zip) —— 主题、字体、演示文档和预览页全都在里面，约 30 MB |
@@ -32,7 +34,7 @@
 
 ### 复制到 Typora 的主题目录
 
-把整套文件 —— 六个 CSS 文件加一个文件夹 —— 复制到：
+把六个 CSS 文件和 `primary-fonts/` 复制到：
 
 | 平台 | 主题目录 |
 | --- | --- |
@@ -48,6 +50,7 @@
 | `primary-fonts/` | 打包字体 —— 八个 woff2 文件 |
 | `primary-dots.css` · `primary-dots-dark.css` | 主题 **加上** Primary 的圆点纸 |
 | `primary-grid.css` · `primary-grid-dark.css` | 主题 **加上** Primary 的横线纸 |
+| `primary-LICENSE.txt` · `primary-FONTS.md` | 出处说明 —— GPL-3.0 许可与字体各自的条款；放不放都行 |
 
 后四个是可选的纸张纹理，每个约 2 KB —— 不需要就不放，拿不准就留着。详见[背景纹理](#背景纹理)。
 

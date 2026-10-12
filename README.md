@@ -11,7 +11,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
 ![Typora](https://img.shields.io/badge/Typora-1.x-4d4d4d.svg)
 ![Fonts](https://img.shields.io/badge/fonts-4%20families%20bundled-2e7d32.svg)
-![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)
+[![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)](https://github.com/tangolee/primary-typora-theme/releases/latest)
 
 [Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-the-theme-covers) · [Caret animation](#caret-animation) · [Background patterns](#background-patterns) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
 
@@ -25,6 +25,8 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 
 ### 1 · Get the files
 
+**The release download is the short path:** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) — the six CSS files and `primary-fonts/`, 27.8 MiB, and nothing else. Unzip and it is ready to drop in.
+
 | Option               | How                                                                                                                                                               |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Download the ZIP** | [primary-typora-theme-main.zip](https://github.com/tangolee/primary-typora-theme/archive/refs/heads/main.zip) — the whole theme, fonts, demo and previews, ~30 MB |
@@ -32,7 +34,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 
 ### 2 · Drop them into Typora's theme folder
 
-Copy the whole set — six CSS files and one folder — into:
+Copy the six CSS files and `primary-fonts/` into:
 
 | Platform | Theme folder                                  |
 | -------- | --------------------------------------------- |
@@ -46,8 +48,9 @@ The quickest route is **File → Preferences → Appearance → Open Theme Folde
 | ---------------------------------------------------------- | ------------------------------------------------------------- |
 | `primary.css` · `primary-dark.css`                         | the theme itself                                              |
 | `primary-fonts/`                                           | the bundled fonts — eight woff2 files                         |
-| `primary-dots.css` · `primary-dots-dark.css`               | the theme **plus** Primary's dotted paper                      |
-| `primary-grid.css` · `primary-grid-dark.css`               | the theme **plus** Primary's lined paper                       |
+| `primary-dots.css` · `primary-dots-dark.css`               | the theme **plus** Primary's dotted paper                     |
+| `primary-grid.css` · `primary-grid-dark.css`               | the theme **plus** Primary's lined paper                      |
+| `primary-LICENSE.txt` · `primary-FONTS.md`                 | provenance — GPL-3.0, and the fonts' own terms; optional      |
 
 The last four are the optional paper texture and are ~2 KB each — skip them if you don't want one, keep them if you might. See [Background patterns](#background-patterns).
 

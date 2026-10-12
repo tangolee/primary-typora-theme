@@ -1,5 +1,7 @@
 <div align="center">
 
+**English** &nbsp;·&nbsp; [简体中文](README.zh-CN.md)
+
 # Primary for Typora
 
 **A faithful port of [Primary](https://github.com/primary-theme/obsidian) — Cecilia May's warm, paper-and-terracotta Obsidian theme — to Typora.**
@@ -7,14 +9,11 @@
 Same palette, same typography, same signature callouts, code chips and pill tags. The fonts ship with it, so a document looks the same on a machine that has none of them installed.
 
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
-
 ![Typora](https://img.shields.io/badge/Typora-1.x-4d4d4d.svg)
-
 ![Fonts](https://img.shields.io/badge/fonts-4%20families%20bundled-2e7d32.svg)
-
 ![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)
 
-[Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-theme-covers) · [Caret animation](#caret-animation) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
+[Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-the-theme-covers) · [Caret animation](#caret-animation) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
 
 ![Primary for Typora — the demo document in light mode (left) and dark mode (right)](screenshot-hero.png)
 

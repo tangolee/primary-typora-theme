@@ -8,8 +8,5 @@ desktop.ini
 *.swp
 *.swo
 
-# local runtime state, created by tooling — never part of the theme
-state/
-
 # locally packed release archives
 *.zip

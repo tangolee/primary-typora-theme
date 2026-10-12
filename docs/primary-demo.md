@@ -102,11 +102,19 @@ export only**; inside the editor use the `> [!NOTE]` syntax above.
 Typora strips `class` from user HTML while rendering, so the pills hang off a
 Markdown link instead — point a link at `#tag` and it becomes a Primary pill:
 
+<<<<<<< Updated upstream:docs/primary-demo.md
 [#primary-features](#tag) [#tags](#tag) [#obsidian](#tag)
 
 Swap the target for one of the three tints:
 
 [#yellow-pill](#tag-1) [#red-pill](#tag-2) [#blue-pill](#tag-3)
+=======
+[#fafa](#tag-1)
+
+<span class="tag">#primary-features</span> <span class="tag">#tags</span>
+<span class="tag tag-1">#yellow-pill</span> <span class="tag tag-2">#red-pill</span>
+<span class="tag tag-3">#blue-pill</span>
+>>>>>>> Stashed changes:primary-demo.md
 
 ## 中文排版
 

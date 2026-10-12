@@ -131,6 +131,7 @@ body.ty-fileview-armed #write { caret-color: transparent; }
    17 · Scrollbars & selection
    18 · Focus mode & print / export
    19 · Caret
+   20 · Background pattern        (opt-in — see src/patterns/)
    =========================================================================== */
 
 
@@ -358,6 +359,13 @@ body.ty-fileview-armed #write { caret-color: transparent; }
   --p-checkbox-bg:    var(--p-gray-130);
   --p-char-color:     var(--p-gray-60);   /* **, ##, `` marker characters      */
   --p-marker:         var(--p-gray-50);   /* list bullets                      */
+
+  /* ── Background pattern ───────────────────────────────────────────────── */
+  /* Off unless a pattern theme turns it on. `primary-dark.css` on its own
+     leaves this at `none`; the small files under src/patterns/ set
+     --p-bg-pattern and nothing else. */
+  --p-bg-pattern:      none;
+  --p-bg-pattern-size: auto;
 
   /* ── Text emphasis ────────────────────────────────────────────────────── */
   --p-bold:         var(--p-red-30);
@@ -1965,28 +1973,28 @@ body.ty-fileview-armed .CodeMirror-focused div.CodeMirror-cursor {
 
 
 /* ===========================================================================
-   OPTIONAL · Primary's signature paper texture
+   20 · BACKGROUND PATTERN
    ---------------------------------------------------------------------------
-   The original theme ships an optional dotted / lined background pattern.
-   Un-comment one of the blocks below to enable it.
+   Primary ships an optional dotted / lined paper texture. It used to live here
+   as two commented-out blocks, which meant turning it on required opening this
+   file and un-commenting CSS — no good for anyone who does not write CSS.
+
+   It is a theme now instead. src/patterns/dots.css and src/patterns/grid.css
+   are tiny files that @import a palette and set --p-bg-pattern; build.py turns
+   them into primary-dots.css, primary-dots-dark.css, primary-grid.css and
+   primary-grid-dark.css, each of which shows up in
+   Preferences → Appearance → Themes. Picking one is the whole procedure.
+
+   Keeping the rule *here* rather than in the pattern files means the pattern is
+   declared once against the real canvas. `--p-bg-pattern` defaults to `none`
+   (see the palettes), so nothing changes unless a pattern theme is selected.
    =========================================================================== */
 
-/*
 content, #write {
-  background-image: radial-gradient(circle, var(--p-gray-60) 1px, rgba(0, 0, 0, 0) 1px);
-  background-size: 50px 50px;
+  background-image: var(--p-bg-pattern);
+  background-size: var(--p-bg-pattern-size);
   background-position: 0 0;
 }
-*/
-
-/*
-content, #write {
-  background-image:
-    linear-gradient(to left, rgba(0, 0, 0, 0.055) 1px, transparent 1px),
-    linear-gradient(to top,  rgba(0, 0, 0, 0.055) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-*/
 
 /* ---------- preview chrome ---------- */
 .pv-bar {
@@ -2212,3 +2220,5 @@ tinted header, cream body, one soft pixel of shadow.</p>
 </div>
 </body>
 </html>
+
+<!-- generated from primary-dark.css sha256:fcc9bdb559c2 -->

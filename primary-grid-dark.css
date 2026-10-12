@@ -1,0 +1,42 @@
+/* ===========================================================================
+   Primary for Typora — Dark build · grid background
+   A Typora port of the Obsidian theme "Primary" by Cecilia May
+   (https://github.com/primary-theme/obsidian), released under GPL-3.0.
+
+   Generated from src/patterns/grid.css — do not edit dist/ by hand.
+
+   This is a theme in its own right: pick it under
+   Preferences → Appearance → Themes and the paper texture comes on. It brings
+   the rest of the theme along with @import, so primary-dark.css has to sit next to it in
+   the themes folder — which it does if you copy the whole download.
+
+   Nothing below overrides the theme itself. It only sets the two variables that
+   section 20 of primary-dark.css reads; change the pattern there, not here.
+   =========================================================================== */
+
+@import url("./primary-dark.css");
+
+/* ===========================================================================
+   Pattern · GRID
+   ---------------------------------------------------------------------------
+   The lined half of Primary's paper texture: a 50 px grid, drawn as two 1 px
+   gradients rather than a repeating image so it stays crisp at any scale.
+
+   Six per cent of --p-text, against fifteen for the dots — a full grid has far
+   more ink on the page than a field of dots, so the same alpha would read as
+   much heavier. Measured:
+
+       light   ink 91% L against bg 96% L   Δ ≈ 5
+       dark    ink 19% L against bg 15% L   Δ ≈ 4
+
+   build.py wraps this in an @import and emits one theme per palette; see
+   section 20 of src/theme.css for the rule that consumes it.
+   =========================================================================== */
+
+:root {
+  --p-pattern-ink: color-mix(in srgb, var(--p-text) 6%, transparent);
+  --p-bg-pattern:
+    linear-gradient(to left, var(--p-pattern-ink) 1px, transparent 1px),
+    linear-gradient(to top,  var(--p-pattern-ink) 1px, transparent 1px);
+  --p-bg-pattern-size: 50px 50px;
+}

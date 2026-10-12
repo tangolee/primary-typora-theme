@@ -1,0 +1,42 @@
+/* ===========================================================================
+   Primary for Typora — Light build · dots background
+   A Typora port of the Obsidian theme "Primary" by Cecilia May
+   (https://github.com/primary-theme/obsidian), released under GPL-3.0.
+
+   Generated from src/patterns/dots.css — do not edit dist/ by hand.
+
+   This is a theme in its own right: pick it under
+   Preferences → Appearance → Themes and the paper texture comes on. It brings
+   the rest of the theme along with @import, so primary.css has to sit next to it in
+   the themes folder — which it does if you copy the whole download.
+
+   Nothing below overrides the theme itself. It only sets the two variables that
+   section 20 of primary.css reads; change the pattern there, not here.
+   =========================================================================== */
+
+@import url("./primary.css");
+
+/* ===========================================================================
+   Pattern · DOTS
+   ---------------------------------------------------------------------------
+   Primary's signature paper texture: one 1 px dot every 50 px.
+
+   The ink is mixed out of --p-text rather than being a fixed grey. That is
+   deliberate — it makes one definition read at the same contrast on both
+   builds, which a grey token cannot do. The ramps run 10 (lightest) to 140
+   (darkest) in *both* palettes, so the same grey number lands on opposite sides
+   of the page background depending on the build, and no single step gives a
+   matched pair. Measured, at 15%:
+
+       light   bg gray-20 (96% L)  → ink 85% L   Δ ≈ 11
+       dark    bg gray-100 (15% L) → ink 24% L   Δ ≈  9
+
+   build.py wraps this in an @import and emits one theme per palette; see
+   section 20 of src/theme.css for the rule that consumes it.
+   =========================================================================== */
+
+:root {
+  --p-pattern-ink:     color-mix(in srgb, var(--p-text) 15%, transparent);
+  --p-bg-pattern:      radial-gradient(circle, var(--p-pattern-ink) 1px, transparent 1px);
+  --p-bg-pattern-size: 50px 50px;
+}

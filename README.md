@@ -13,7 +13,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 ![Fonts](https://img.shields.io/badge/fonts-4%20families%20bundled-2e7d32.svg)
 ![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)
 
-[Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-the-theme-covers) · [Caret animation](#caret-animation) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
+[Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-the-theme-covers) · [Caret animation](#caret-animation) · [Background patterns](#background-patterns) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
 
 ![Primary for Typora — the demo document in light mode (left) and dark mode (right)](docs/screenshot-hero.png)
 
@@ -32,7 +32,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 
 ### 2 · Drop them into Typora's theme folder
 
-Copy **`primary.css`**, **`primary-dark.css`** and the whole **`primary-fonts/`** folder into:
+Copy the whole set — six CSS files and one folder — into:
 
 | Platform | Theme folder                                  |
 | -------- | --------------------------------------------- |
@@ -40,13 +40,24 @@ Copy **`primary.css`**, **`primary-dark.css`** and the whole **`primary-fonts/`*
 | macOS    | `~/Library/Application Support/typora/themes` |
 | Linux    | `~/.config/typora/themes`                     |
 
-The quickest route is **File → Preferences → Appearance → Open Theme Folder**, then paste the three items in.
+The quickest route is **File → Preferences → Appearance → Open Theme Folder**, then paste them in.
 
-> `primary-fonts/` has to sit **next to** the two CSS files. That is where the relative `url()`s point. Leave it out and the theme still works, but Chinese and code fall back to whatever the system happens to have — which is exactly the inconsistency the bundled fonts exist to remove.
+| Item                                                       | What it is                                                    |
+| ---------------------------------------------------------- | ------------------------------------------------------------- |
+| `primary.css` · `primary-dark.css`                         | the theme itself                                              |
+| `primary-fonts/`                                           | the bundled fonts — eight woff2 files                         |
+| `primary-dots.css` · `primary-dots-dark.css`               | the theme **plus** Primary's dotted paper                      |
+| `primary-grid.css` · `primary-grid-dark.css`               | the theme **plus** Primary's lined paper                       |
+
+The last four are the optional paper texture and are ~2 KB each — skip them if you don't want one, keep them if you might. See [Background patterns](#background-patterns).
+
+> `primary-fonts/` has to sit **next to** the CSS files. That is where the relative `url()`s point. Leave it out and the theme still works, but Chinese and code fall back to whatever the system happens to have — which is exactly the inconsistency the bundled fonts exist to remove.
 
 ### 3 · Switch it on
 
-**File → Preferences → Appearance → Themes → Primary.** For the dark build turn on **Appearance → Themes → Dark mode** (or *Follow system*) and Typora loads `primary-dark.css` by itself.
+**File → Preferences → Appearance → Themes → Theme → Primary.** Typora labels a theme with its file name, hyphens turned into spaces, so the six files above appear as **Primary**, **Primary Dark**, **Primary Dots**, **Primary Dots Dark**, **Primary Grid** and **Primary Grid Dark**.
+
+Typora does **not** pair `X` with `X-dark` on its own. To get the dark build, tick **Use separate theme in dark mode** and set **Dark Theme → Primary Dark**; from then on Typora swaps between the two as the system colour scheme changes. Leave the box unticked and the one theme you picked is used in both modes.
 
 Recommended settings for the intended look:
 
@@ -55,8 +66,8 @@ Recommended settings for the intended look:
 
 ### Updating or removing
 
-- **Update** — replace `primary.css` and `primary-dark.css`. The font folder never changes.
-- **Remove** — delete the two CSS files and `primary-fonts/`, then pick another theme.
+- **Update** — replace all six CSS files. The font folder only changes when the fonts themselves do.
+- **Remove** — delete the six CSS files and `primary-fonts/`, then pick another theme. An unused theme file does nothing, so there is no harm in leaving the pattern themes where they are.
 
 ---
 
@@ -308,9 +319,34 @@ If you prefer GitHub's look over Primary's, the theme deliberately cancels the b
 
 The `#write` prefix is needed so the rule outranks the theme's own `border: none`.
 
-### Optional signature paper texture
+### Background patterns
 
-Near the bottom of the CSS there is an **OPTIONAL** block containing Primary's dotted and lined background patterns. Uncomment one of them to turn Typora's canvas into Primary's dotted paper.
+Primary ships a signature paper texture — a dotted or lined canvas. It used to be two commented-out blocks near the bottom of the theme CSS, which meant switching it on required opening that file and writing CSS. That is a poor trade for a look, so it is four small themes instead:
+
+| Theme in the menu       | File                     | Paper                                     |
+| ----------------------- | ------------------------ | ----------------------------------------- |
+| **Primary Dots**        | `primary-dots.css`       | one 1 px dot every 50 px                  |
+| **Primary Dots Dark**   | `primary-dots-dark.css`  | the same, on the dark palette             |
+| **Primary Grid**        | `primary-grid.css`       | a 1 px rule every 50 px, on both axes     |
+| **Primary Grid Dark**   | `primary-grid-dark.css`  | the same, on the dark palette             |
+
+Drop the files in beside the theme and pick one from **Appearance → Themes**. That is the entire procedure — nothing to edit, nothing to uncomment.
+
+Two things worth knowing if you plan to go further:
+
+- **They import, they don't copy.** Each is about 2 KB and opens with `@import url("./primary.css")`, so a pattern theme can never drift out of step with the theme it belongs to. The one requirement is that `primary.css` stays next to it.
+- **The ink is mixed, not picked.** Both patterns draw with `color-mix(in srgb, var(--p-text) 15%, transparent)` — 6 % for the grid, which lays down far more ink than a field of dots. Mixing from the text colour rather than naming a grey is deliberate: the ramps run 10 (lightest) to 140 (darkest) in *both* palettes, so a fixed grey number lands on opposite sides of the page background depending on the build, and no single step gives a matched pair. The rule that consumes the variable lives in section `20 · BACKGROUND PATTERN` of the theme, and `--p-bg-pattern` defaults to `none`, so `primary.css` on its own renders exactly as it always did.
+
+To change the texture rather than choose one — a wider pitch, a fainter ink — edit `--p-bg-pattern-size` and `--p-pattern-ink` in the pattern file. If you would rather not carry a second file at all, the same thing can be appended to the bottom of `primary.css`:
+
+```css
+content, #write {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--p-text) 15%, transparent) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+```
+
+That works, but it will not survive an update — see [Updating or removing](#updating-or-removing).
 
 ---
 
@@ -333,12 +369,16 @@ The bundled woff2 files are re-wrapped copies of the fonts themselves, so `gasp`
 
 ## Repository layout
 
-Only the first three entries are the theme itself. Everything in `docs/` is documentation — read it, or ignore it and just copy the three.
+The first seven entries are the theme itself. Everything in `docs/` is documentation — read it, or ignore it and just copy the CSS files and the font folder.
 
 ```text
 primary-typora-theme/
 ├── primary.css            the light build — the whole theme, and the file to edit
 ├── primary-dark.css       the dark build, same token set
+├── primary-dots.css       light build + dotted paper        ┐
+├── primary-dots-dark.css  dark build + dotted paper         │  optional background
+├── primary-grid.css       light build + lined paper         │  patterns, ~2 KB each
+├── primary-grid-dark.css  dark build + lined paper          ┘
 ├── primary-fonts/         eight woff2 files, must stay next to the CSS
 ├── docs/                  not needed to install — what it holds:
 │   ├── primary-demo.md        the demo document: every element in one file
@@ -355,8 +395,9 @@ primary-typora-theme/
 
 ## Compatibility
 
-- **Typora 1.x** on Windows, macOS and Linux. Both CSS files are plain CSS custom-property sheets — there is no build step, no preprocessor and no JavaScript.
+- **Typora 1.x** on Windows, macOS and Linux. The CSS files are plain CSS custom-property sheets — there is no build step, no preprocessor and no JavaScript.
 - **The caret fade needs `caret-animation`** (Chromium 140 or newer). On an older runtime the `@supports` gate drops that block and nothing else changes.
+- **The pattern themes use `@import`**, which the browser resolves relative to the theme file itself — the same mechanism several published Typora themes rely on to load their own fonts. Typora also follows it when exporting, so the exported CSS carries the pattern too. The only rule is that `primary.css` has to stay beside them.
 - **Raw-HTML styling is export-only.** Typora's renderer removes `class` / `id` / `data-*` from user HTML; it puts them back when you export or print. The theme is written so nothing depends on them in the editor: tags are Markdown links, Obsidian callouts are the export-time layer on top of the five native alerts.
 - **Five alert types, the whole callout palette.** Typora only parses `[!NOTE] [TIP] [IMPORTANT] [WARNING] [CAUTION]`; every other callout colour Primary ships is reachable through route B above.
 - **Almost all of the download is the fonts.** If you would rather not carry 27.6 MiB of them, delete `primary-fonts/` and the `@font-face` block — everything else keeps working.

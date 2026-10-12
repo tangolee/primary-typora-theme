@@ -13,7 +13,7 @@
 [![Fonts](https://img.shields.io/badge/fonts-4%20families%20bundled-2e7d32.svg)](#字体)
 [![Download](https://img.shields.io/badge/download-zip-2ea44f.svg)](https://github.com/tangolee/primary-typora-theme/archive/refs/heads/main.zip)
 
-[安装](#安装) · [截图](#截图) · [主题包含什么](#主题包含什么) · [光标动画](#光标动画) · [自定义](#自定义) · [字体](#字体) · [仓库结构](#仓库结构) · [兼容性](#兼容性) · [许可](#许可)
+[安装](#安装) · [截图](#截图) · [主题包含什么](#主题包含什么) · [光标动画](#光标动画) · [背景纹理](#背景纹理) · [自定义](#自定义) · [字体](#字体) · [仓库结构](#仓库结构) · [兼容性](#兼容性) · [许可](#许可)
 
 <img src="docs/screenshot-hero.png" width="100%" alt="Primary for Typora —— 演示文档的浅色模式（左）与深色模式（右）">
 
@@ -32,7 +32,7 @@
 
 ### 复制到 Typora 的主题目录
 
-把 **`primary.css`**、**`primary-dark.css`** 和整个 **`primary-fonts/`** 文件夹复制到：
+把整套文件 —— 六个 CSS 文件加一个文件夹 —— 复制到：
 
 | 平台 | 主题目录 |
 | --- | --- |
@@ -40,13 +40,24 @@
 | macOS | `~/Library/Application Support/typora/themes` |
 | Linux | `~/.config/typora/themes` |
 
-最快的走法是 **文件 → 偏好设置 → 外观 → 打开主题文件夹**，然后把这三项粘贴进去。
+最快的走法是 **文件 → 偏好设置 → 外观 → 打开主题文件夹**，然后把这些粘贴进去。
 
-> `primary-fonts/` 必须和两个 CSS 文件**并排放在同一层** —— 样式表里的相对路径就指向那里。不装字体主题也能跑，但中文和代码会退回系统碰巧有的那个字体，而这正是打包字体要消除的那种不一致。
+| 项目 | 是什么 |
+| --- | --- |
+| `primary.css` · `primary-dark.css` | 主题本身 |
+| `primary-fonts/` | 打包字体 —— 八个 woff2 文件 |
+| `primary-dots.css` · `primary-dots-dark.css` | 主题 **加上** Primary 的圆点纸 |
+| `primary-grid.css` · `primary-grid-dark.css` | 主题 **加上** Primary 的横线纸 |
+
+后四个是可选的纸张纹理，每个约 2 KB —— 不需要就不放，拿不准就留着。详见[背景纹理](#背景纹理)。
+
+> `primary-fonts/` 必须和 CSS 文件**并排放在同一层** —— 样式表里的相对路径就指向那里。不装字体主题也能跑，但中文和代码会退回系统碰巧有的那个字体，而这正是打包字体要消除的那种不一致。
 
 ### 启用主题
 
-**文件 → 偏好设置 → 外观 → 主题 → Primary。** 深色版另外打开 **外观 → 主题 → 深色模式**（或选择 *跟随系统*），Typora 会自行加载 `primary-dark.css`。
+**文件 → 偏好设置 → 外观 → 主题**，把主题下拉框设为 **Primary**。Typora 用文件名当主题名，把连字符换成空格，所以上面六个文件在列表里是 **Primary**、**Primary Dark**、**Primary Dots**、**Primary Dots Dark**、**Primary Grid**、**Primary Grid Dark**。
+
+Typora **不会**自己把 `X` 和 `X-dark` 配成一对。要用深色版，勾上 **在深色模式下使用独立的主题**，再把 **深色主题** 设为 **Primary Dark**；之后系统配色一变，Typora 就在两者之间切换。不勾这个框，你选的那一个主题会在两种模式下都用。
 
 为了得到设计时的效果，建议这样设置：
 
@@ -55,8 +66,8 @@
 
 ### 更新与卸载
 
-- **更新** —— 替换 `primary.css` 和 `primary-dark.css` 即可，字体文件夹从来不用动。
-- **卸载** —— 删掉这两个 CSS 文件和 `primary-fonts/`，再选回别的主题。
+- **更新** —— 替换全部六个 CSS 文件即可；字体文件夹只在字体本身变动时才需要换。
+- **卸载** —— 删掉这六个 CSS 文件和 `primary-fonts/`，再选回别的主题。没被选中的主题文件不会做任何事，所以纹理主题留着也不碍事。
 
 ---
 
@@ -305,9 +316,34 @@ Typora 画光标的方式有两种，天花板差得很远。主题在各自允�
 
 `#write` 前缀是必须的，这样规则才能压过主题自己写的 `border: none`。
 
-### 可选的签名纸张纹理
+### 背景纹理
 
-CSS 靠下的位置有一个标着 **OPTIONAL** 的块，里面装着 Primary 的圆点与横线背景纹理。取消其中一条的注释，Typora 的画布就变成 Primary 的圆点纸。
+Primary 自带一张标志性的纸张纹理 —— 圆点纸或横线纸。它原来是主题 CSS 靠下的两个注释块，想打开就得先打开那个文件、动手写 CSS。为了一个观感付出这个代价不划算，所以它现在是四个小主题：
+
+| 菜单里的主题 | 文件 | 纸面 |
+| --- | --- | --- |
+| **Primary Dots** | `primary-dots.css` | 每 50 px 一个 1 px 圆点 |
+| **Primary Dots Dark** | `primary-dots-dark.css` | 同上，改用深色配色 |
+| **Primary Grid** | `primary-grid.css` | 每 50 px 一条 1 px 线，两个方向都有 |
+| **Primary Grid Dark** | `primary-grid-dark.css` | 同上，改用深色配色 |
+
+把文件放进主题文件夹，在 **外观 → 主题** 里挑一个就行 —— 整个流程到此为止，不用编辑，也不用取消注释。
+
+如果还想往下改，有两件事值得知道：
+
+- **它们是 import，不是复制。** 每个约 2 KB，开头就是 `@import url("./primary.css")`，所以纹理主题永远不会和它所属的主题脱节。唯一的条件是 `primary.css` 得待在它旁边。
+- **墨色是混出来的，不是挑出来的。** 两种纹理都画 `color-mix(in srgb, var(--p-text) 15%, transparent)` —— 横线用 6%，因为它落在页面上的墨比圆点场多得多。用正文色来混是刻意的：两套配色的色阶都是从 10（最浅）排到 140（最深），同一个灰色数值会在两种构建里落到页面背景的两侧，没有任何一档能同时对上。真正消费这个变量的是主题里的 `20 · BACKGROUND PATTERN` 一节，而 `--p-bg-pattern` 默认是 `none`，所以光用 `primary.css` 渲染出来的东西和以前一模一样。
+
+想改纹理本身而不是挑一款 —— 换更宽的间距、更淡的墨 —— 改纹理文件里的 `--p-bg-pattern-size` 和 `--p-pattern-ink` 即可。如果不想多带一个文件，同样的事情也可以追加到 `primary.css` 末尾：
+
+```css
+content, #write {
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--p-text) 15%, transparent) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+```
+
+这样可行，但升级时不会保留 —— 见[更新与卸载](#更新与卸载)。
 
 ## 字体
 
@@ -328,12 +364,16 @@ CSS 靠下的位置有一个标着 **OPTIONAL** 的块，里面装着 Primary �
 
 ## 仓库结构
 
-前三项就是主题本身，`docs/` 里的全是文档资料 —— 想看就看，不看也无所谓，装主题只需要复制那三项。
+最前面七项就是主题本身，`docs/` 里的全是文档资料 —— 想看就看，不看也无所谓，装主题只需要复制 CSS 文件和字体文件夹。
 
 ```text
 primary-typora-theme/
 ├── primary.css            浅色构建 —— 整个主题，也是你要改的那个文件
 ├── primary-dark.css       深色构建，同一份令牌集
+├── primary-dots.css       浅色构建 + 圆点纸    ┐
+├── primary-dots-dark.css  深色构建 + 圆点纸    │  可选的背景纹理
+├── primary-grid.css       浅色构建 + 横线纸    │  主题，每个约 2 KB
+├── primary-grid-dark.css  深色构建 + 横线纸    ┘
 ├── primary-fonts/         八个 woff2 文件，必须和 CSS 放在同一层
 ├── docs/                  安装时用不到 —— 里面是：
 │   ├── primary-demo.md        演示文档：所有元素集中在一个文件里
@@ -350,8 +390,9 @@ primary-typora-theme/
 
 ## 兼容性
 
-- **Typora 1.x**，Windows / macOS / Linux 均可。两个 CSS 文件都是普通的 CSS 自定义属性样式表 —— 没有构建步骤、没有预处理器、没有 JavaScript。
+- **Typora 1.x**，Windows / macOS / Linux 均可。这些 CSS 文件都是普通的 CSS 自定义属性样式表 —— 没有构建步骤、没有预处理器、没有 JavaScript。
 - **光标淡出需要 `caret-animation`**（Chromium 140 或更新）。在更老的运行时上，`@supports` 会把这个块丢掉，其余部分不受影响。
+- **纹理主题用的是 `@import`**，浏览器会相对主题文件本身去解析它 —— 已经有好几个公开的 Typora 主题靠同一个机制加载自己的字体。Typora 在导出时也会跟着展开，所以导出的 CSS 同样带上纹理。唯一的规矩是 `primary.css` 得待在它们旁边。
 - **原始 HTML 的样式只在导出时生效。** Typora 的渲染器会移除用户 HTML 上的 `class` / `id` / `data-*`，在导出或打印时再放回去。主题的写法保证编辑器里不依赖它们：标签走 Markdown 链接，Obsidian callout 是在五种原生 alert 之上叠的一层导出时素材。
 - **五种告示块，一整套 callout 色板。** Typora 只解析 `[!NOTE] [TIP] [IMPORTANT] [WARNING] [CAUTION]`；Primary 提供的其余每一种 callout 颜色都可以通过上文的路线 B 拿到。
 - **下载内容里几乎全是字体。** 如果你不想背着这 27.6 MiB，删掉 `primary-fonts/` 和 `@font-face` 块即可，其余部分照常工作。

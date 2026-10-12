@@ -15,7 +15,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 
 [Install](#install) · [Screenshots](#screenshots) · [What the theme covers](#what-the-theme-covers) · [Caret animation](#caret-animation) · [Customising](#customising) · [Fonts](#fonts) · [Repository layout](#repository-layout) · [Compatibility](#compatibility) · [Licence](#licence)
 
-![Primary for Typora — the demo document in light mode (left) and dark mode (right)](screenshot-hero.png)
+![Primary for Typora — the demo document in light mode (left) and dark mode (right)](docs/screenshot-hero.png)
 
 </div>
 
@@ -71,17 +71,17 @@ Both builds share one token set, so the two are the same design in two temperatu
   
 
 
-**Light** — `screenshot-light.png`
+**Light** — `docs/screenshot-light.png`
 
-![The full demo document in light mode](screenshot-light.png)
+![The full demo document in light mode](docs/screenshot-light.png)
 
-**Dark** — `screenshot-dark.png`
+**Dark** — `docs/screenshot-dark.png`
 
-![The full demo document in dark mode](screenshot-dark.png)
+![The full demo document in dark mode](docs/screenshot-dark.png)
 
-**Side by side** — `screenshot-compare.png`
+**Side by side** — `docs/screenshot-compare.png`
 
-![Light and dark, side by side](screenshot-compare.png)
+![Light and dark, side by side](docs/screenshot-compare.png)
 
 </details>
 
@@ -91,9 +91,9 @@ These pages open in any browser and are fully self-contained — the CSS is inli
 
 | File                                                 | What it shows                                                  |
 | ---------------------------------------------------- | -------------------------------------------------------------- |
-| `preview-light.html` · `preview-dark.html`           | every element at a glance                                      |
-| `preview-demo-light.html` · `preview-demo-dark.html` | the bundled demo document, rendered                            |
-| `probe-fallback.html`                                | an A/B page proving the bundled fonts match the installed ones |
+| `docs/preview-light.html` · `docs/preview-dark.html`           | every element at a glance                                      |
+| `docs/preview-demo-light.html` · `docs/preview-demo-dark.html` | the bundled demo document, rendered                            |
+| `docs/probe-fallback.html`                                | an A/B page proving the bundled fonts match the installed ones |
 
 > **One caveat about the previews.** Typora strips `class`, `id` and `data-*` from raw HTML while rendering, then restores them on export. These pages are built to match the **exported / printed** result, so the Obsidian-style callouts below appear styled here and in exported HTML/PDF — but not inside the editor. In the editor, use the `> [!NOTE]` syntax; see [Callouts](#callouts).
 
@@ -333,17 +333,23 @@ The bundled woff2 files are re-wrapped copies of the fonts themselves, so `gasp`
 
 ## Repository layout
 
-| Path                  | What it is                                              |
-| --------------------- | ------------------------------------------------------- |
-| `primary.css`         | the light build — the whole theme, and the file to edit |
-| `primary-dark.css`    | the dark build, same token set                          |
-| `primary-fonts/`      | eight woff2 files, must stay next to the CSS            |
-| `primary-demo.md`     | the demo document: every element in one file            |
-| `preview-*.html`      | self-contained browser previews                         |
-| `probe-fallback.html` | font-fallback A/B page                                  |
-| `screenshot-*.png`    | the images used above                                   |
-| `FONTS.md`            | font provenance, licences, verification                 |
-| `LICENSE`             | GPL-3.0                                                 |
+Only the first three entries are the theme itself. Everything in `docs/` is documentation — read it, or ignore it and just copy the three.
+
+```text
+primary-typora-theme/
+├── primary.css            the light build — the whole theme, and the file to edit
+├── primary-dark.css       the dark build, same token set
+├── primary-fonts/         eight woff2 files, must stay next to the CSS
+├── docs/                  not needed to install — what it holds:
+│   ├── primary-demo.md        the demo document: every element in one file
+│   ├── preview-*.html         self-contained browser previews
+│   ├── probe-fallback.html    font-fallback A/B page
+│   └── screenshot-*.png       the images used above
+├── FONTS.md               font provenance, licences, verification
+├── README.md
+├── README.zh-CN.md
+└── LICENSE                GPL-3.0
+```
 
 ---
 

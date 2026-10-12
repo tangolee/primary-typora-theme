@@ -141,8 +141,8 @@ sup.md-footnote a { text-decoration: none; }
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("./primary-fonts/InterVar.woff2") format("woff2-variations"),
-       url("./primary-fonts/InterVar.woff2") format("woff2");
+  src: url("../primary-fonts/InterVar.woff2") format("woff2-variations"),
+       url("../primary-fonts/InterVar.woff2") format("woff2");
 }
 
 @font-face {
@@ -150,8 +150,8 @@ sup.md-footnote a { text-decoration: none; }
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url("./primary-fonts/InterVar-Italic.woff2") format("woff2-variations"),
-       url("./primary-fonts/InterVar-Italic.woff2") format("woff2");
+  src: url("../primary-fonts/InterVar-Italic.woff2") format("woff2-variations"),
+       url("../primary-fonts/InterVar-Italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -159,8 +159,8 @@ sup.md-footnote a { text-decoration: none; }
   font-style: normal;
   font-weight: 200 700;
   font-display: swap;
-  src: url("./primary-fonts/CascadiaCode.woff2") format("woff2-variations"),
-       url("./primary-fonts/CascadiaCode.woff2") format("woff2");
+  src: url("../primary-fonts/CascadiaCode.woff2") format("woff2-variations"),
+       url("../primary-fonts/CascadiaCode.woff2") format("woff2");
 }
 
 /* --- CJK body face -------------------------------------------------------
@@ -175,7 +175,7 @@ sup.md-footnote a { text-decoration: none; }
   font-display: swap;
   src: local("HarmonyOS Sans SC"),
        local("HarmonyOS_Sans_SC"),
-       url("./primary-fonts/HarmonyOS-Sans-SC-Regular.woff2") format("woff2");
+       url("../primary-fonts/HarmonyOS-Sans-SC-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -185,7 +185,7 @@ sup.md-footnote a { text-decoration: none; }
   font-display: swap;
   src: local("HarmonyOS Sans SC Bold"),
        local("HarmonyOS_Sans_SC_Bold"),
-       url("./primary-fonts/HarmonyOS-Sans-SC-Bold.woff2") format("woff2");
+       url("../primary-fonts/HarmonyOS-Sans-SC-Bold.woff2") format("woff2");
 }
 
 /* --- Code face -----------------------------------------------------------
@@ -201,7 +201,7 @@ sup.md-footnote a { text-decoration: none; }
   font-display: swap;
   src: local("Maple Mono NF CN Regular"),
        local("MapleMono-NF-CN-Regular"),
-       url("./primary-fonts/MapleMono-NF-CN-Regular.woff2") format("woff2");
+       url("../primary-fonts/MapleMono-NF-CN-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -211,7 +211,7 @@ sup.md-footnote a { text-decoration: none; }
   font-display: swap;
   src: local("Maple Mono NF CN Bold"),
        local("MapleMono-NF-CN-Bold"),
-       url("./primary-fonts/MapleMono-NF-CN-Bold.woff2") format("woff2");
+       url("../primary-fonts/MapleMono-NF-CN-Bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -221,7 +221,7 @@ sup.md-footnote a { text-decoration: none; }
   font-display: swap;
   src: local("Maple Mono NF CN Italic"),
        local("MapleMono-NF-CN-Italic"),
-       url("./primary-fonts/MapleMono-NF-CN-Italic.woff2") format("woff2");
+       url("../primary-fonts/MapleMono-NF-CN-Italic.woff2") format("woff2");
 }
 
 
@@ -1802,80 +1802,107 @@ body { background: var(--p-bg); }
   <a href="preview-dark.html">深色</a>
 </div>
 <div id="write">
-<pre class="md-meta-block">title: Primary 主题移植演示
+<!-- ===================================================================
+     Demo body — mimics the HTML that Typora produces for a document.
+     Used by dev/make_preview.py to render dist/preview-*.html
+     =================================================================== -->
+
+<pre class="md-meta-block">title: Primary 主题移植
 author: Cecilia May · ported to Typora
 tags: [theme, obsidian, warm]</pre>
-<div class="md-toc"><a class="md-toc-item md-toc-h1" href="#welcome-to-primary"><span class="md-toc-inner">Welcome to Primary</span></a><a class="md-toc-item md-toc-h2" href="#headings"><span class="md-toc-inner">Headings</span></a><a class="md-toc-item md-toc-h3" href="#heading-3"><span class="md-toc-inner">Heading 3</span></a><a class="md-toc-item md-toc-h4" href="#heading-4"><span class="md-toc-inner">Heading 4</span></a><a class="md-toc-item md-toc-h5" href="#heading-5"><span class="md-toc-inner">Heading 5</span></a><a class="md-toc-item md-toc-h6" href="#heading-6"><span class="md-toc-inner">Heading 6</span></a><a class="md-toc-item md-toc-h2" href="#lists"><span class="md-toc-inner">Lists</span></a><a class="md-toc-item md-toc-h2" href="#blockquote"><span class="md-toc-inner">Blockquote</span></a><a class="md-toc-item md-toc-h2" href="#callouts"><span class="md-toc-inner">Callouts</span></a><a class="md-toc-item md-toc-h2" href="#tags"><span class="md-toc-inner">Tags</span></a><a class="md-toc-item md-toc-h2" href="#_1"><span class="md-toc-inner">中文排版</span></a><a class="md-toc-item md-toc-h2" href="#code"><span class="md-toc-inner">Code</span></a><a class="md-toc-item md-toc-h2" href="#table"><span class="md-toc-inner">Table</span></a><a class="md-toc-item md-toc-h2" href="#math"><span class="md-toc-inner">Math</span></a><a class="md-toc-item md-toc-h2" href="#horizontal-rule"><span class="md-toc-inner">Horizontal rule</span></a><a class="md-toc-item md-toc-h2" href="#footnotes"><span class="md-toc-inner">Footnotes</span></a></div>
-<h1 id="welcome-to-primary">Welcome to Primary</h1>
+
+<h1>Welcome to Primary</h1>
+
 <p>Primary is soft, chewy, comforting — like a chocolate chip cookie, or a warm
-brownie. It merges <strong>play</strong> with <em>work</em>, and it was ported here from the Obsidian
-theme of the same name.</p>
+brownie. It merges <strong>play</strong> with <em>work</em>, and it was ported here
+from the Obsidian theme of the same name.</p>
+
 <p>Fine-tuned to pixel and colour perfection, Primary aims to take away the need to
-think about customization, so that you can <strong>focus on what matters</strong> — the
-concepts, that link, this great idea. <u>Underlined text</u> stays quiet,
-<del>struck-through text</del> steps back, and <code>inline code</code> wears a warm little chip.
-Highlights come in three flavours: <mark>plain</mark>, <strong><mark>bold</mark></strong> and <em><mark>italic</mark></em>.</p>
-<p>Read more at <a href="https://github.com/primary-theme/obsidian">the Primary documentation</a>,
-jump to <a href="#callouts">Callouts</a>, or mail <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a>.</p>
-<h2 id="headings">Headings</h2>
-<h3 id="heading-3">Heading 3</h3>
-<h4 id="heading-4">Heading 4</h4>
-<h5 id="heading-5">Heading 5</h5>
-<h6 id="heading-6">Heading 6</h6>
-<h2 id="lists">Lists</h2>
+think about customization, so that you can <strong><em>focus on what matters</em></strong>
+— the concepts, that link, this great idea. <u>Underlined text</u> stays quiet,
+<s>struck-through text steps back</s>, and <code>inline code</code> wears a warm
+little chip. Highlights come in three flavours: <mark>plain</mark>,
+<strong><mark>bold</mark></strong> and <em><mark>italic</mark></em>.</p>
+
+<p>Read more at <a href="https://primary-theme.github.io/start-here">the Primary
+documentation</a>, jump to <a href="#callouts">Callouts</a>, or mail
+<a href="mailto:hello@example.com">hello@example.com</a>.</p>
+
+<h2>Headings</h2>
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+
+<h2>Lists</h2>
+
 <ul>
-<li>Bullet — the marker uses a muted clay tone</li>
-<li>Second level turns terracotta<ul>
-<li>Third level turns slate blue</li>
+  <li>Bullet — the marker uses a muted clay tone
+    <ul>
+      <li>Second level turns terracotta
+        <ul><li>Third level turns slate blue</li></ul>
+      </li>
+    </ul>
+  </li>
+  <li>Another item</li>
 </ul>
-</li>
-<li>Another item</li>
-</ul>
+
 <ol>
-<li>First</li>
-<li>Second</li>
-<li>Third</li>
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
 </ol>
+
 <ul>
-<li class='md-list-item task-list-item md-task-list-item task-list-done'><input type='checkbox' checked></input>functional but artistic experience</li>
-<li class='md-list-item task-list-item md-task-list-item task-list-done'><input type='checkbox' checked></input>exceptional quality, down to the finest details</li>
-<li class='md-list-item task-list-item md-task-list-item task-list-not-done'><input type='checkbox'></input>timeless design</li>
-<li class='md-list-item task-list-item md-task-list-item task-list-not-done'><input type='checkbox'></input>easily extensible, customizable</li>
+  <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="checked">functional but artistic experience</li>
+  <li class="md-task-list-item task-list-item task-list-done"><input type="checkbox" checked="checked">exceptional-quality, down-to-the-finest details</li>
+  <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">timeless design</li>
+  <li class="md-task-list-item task-list-item task-list-not-done"><input type="checkbox">easily extensible, customizable</li>
 </ul>
-<h2 id="blockquote">Blockquote</h2>
+
+<h2>Blockquote</h2>
+
 <blockquote>
-<p>Primary is an opinionated <strong>Obsidian</strong> theme that merges <em>play</em> with work.</p>
-<p>A second paragraph inside the same quote.</p>
+  <p>Primary is an opinionated <strong>Obsidian</strong> theme that merges
+  <em>play</em> with work.</p>
+  <p>A second paragraph inside the same quote.</p>
 </blockquote>
+
 <h2 id="callouts">Callouts</h2>
+
 <p>Typora's five native alerts are mapped onto Primary's own callout palette —
 tinted header, cream body, one soft pixel of shadow.</p>
+
 <div class="md-alert md-alert-note">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span></span></p>
-<p>Useful information that users should know, even when skimming.</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span></span></p>
+  <p>Useful information that users should know, even when skimming.</p>
 </div>
 
 <div class="md-alert md-alert-tip">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-tip"><span class="md-alert-text-container" data-text="tip"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2a7 7 0 0 0-4 12.7V19h8v-4.3A7 7 0 0 0 12 2z"/></svg></span></span></p>
-<p>Helpful advice for doing things better or more easily — the mint one.</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-tip"><span class="md-alert-text-container" data-text="tip"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2a7 7 0 0 0-4 12.7V19h8v-4.3A7 7 0 0 0 12 2z"/></svg></span></span></p>
+  <p>Helpful advice for doing things better or more easily — the mint one.</p>
 </div>
 
 <div class="md-alert md-alert-important">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-important"><span class="md-alert-text-container" data-text="important"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.5L5.7 20 8 13.3 2 8.9h7.6z"/></svg></span></span></p>
-<p>Key information users need to know to achieve their goal.</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-important"><span class="md-alert-text-container" data-text="important"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2l2.4 6.9H22l-6 4.4 2.3 7-6.3-4.5L5.7 20 8 13.3 2 8.9h7.6z"/></svg></span></span></p>
+  <p>Key information users need to know to achieve their goal.</p>
 </div>
 
 <div class="md-alert md-alert-warning">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-warning"><span class="md-alert-text-container" data-text="warning"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3l10 18H2z"/></svg></span></span></p>
-<p>Urgent info that needs immediate user attention to avoid problems.</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-warning"><span class="md-alert-text-container" data-text="warning"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3l10 18H2z"/></svg></span></span></p>
+  <p>Urgent info that needs immediate user attention to avoid problems.</p>
 </div>
 
 <div class="md-alert md-alert-caution">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-caution"><span class="md-alert-text-container" data-text="caution"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/></svg></span></span></p>
-<p>Advises about risks or negative outcomes of certain actions.</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-caution"><span class="md-alert-text-container" data-text="caution"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/></svg></span></span></p>
+  <p>Advises about risks or negative outcomes of certain actions.</p>
 </div>
 
 <p>For the full Obsidian set — including custom titles — drop in a raw HTML block:</p>
+
 <div class="callout" data-callout="info">
   <div class="callout-title">Info</div>
   <div class="callout-content"><p>Blue-green tinted, straight from Primary's own palette.</p></div>
@@ -1896,105 +1923,75 @@ tinted header, cream body, one soft pixel of shadow.</p>
   <div class="callout-content"><p>A dusty rose example block.</p></div>
 </div>
 
-<h2 id="tags">Tags</h2>
-<p>Typora has no hashtag syntax, so tags are written as a small inline span:</p>
-<p><span class="tag">#primary-features</span> <span class="tag">#tags</span>
-<span class="tag tag-1">#yellow-pill</span> <span class="tag tag-2">#red-pill</span>
-<span class="tag tag-3">#blue-pill</span></p>
-<h2 id="_1">中文排版</h2>
-<p>中文字形来自 <strong>HarmonyOS Sans SC</strong>，而拉丁字母、数字与标点仍由 <strong>Inter</strong> 渲染——
-Inter 覆盖不到的字符会自动回退到中文黑体字面，两者基线一致，混排不会跳字。
-这四个字体都已随主题打包成 woff2 放在 <code>primary-fonts/</code>，
-<strong>换一台没有安装这些字体的电脑打开，排版也不会变</strong>。</p>
-<p>正文里的<strong>加粗中文</strong>、<em>倾斜中文</em>、<code>行内中文代码</code>都跟随同一套配色：
-加粗偏陶土红，斜体偏石板蓝。行距保持 Primary 原有的松弛感，
-段落之间留白充裕，长段落阅读不吃力。</p>
-<p>代码块中的中文则由 <strong>Maple Mono NF CN</strong> 承担，等宽网格严格 2:1，
-中英文混排时纵向严格对齐：</p>
-<pre><code class="language-text">配置项      说明                    默认值
-theme.name  主题名称                Primary
-theme.mode  明暗模式 light / dark   light
-font.cjk    中文字体                HarmonyOS Sans SC
-font.mono   代码字体                Maple Mono NF CN
-</code></pre>
+<h2>Tags</h2>
+
+<p>
+  <span class="tag">#primary-features</span>
+  <span class="tag">#tags</span>
+  <span class="tag tag-1">#yellow-pill</span>
+  <span class="tag tag-2">#red-pill</span>
+  <span class="tag tag-3">#blue-pill</span>
+</p>
+
+<h2>中文排版</h2>
+
+<p>中文字形来自 <strong>HarmonyOS Sans SC</strong>，而拉丁字母、数字与标点仍由 <strong>Inter</strong> 渲染——Inter 覆盖不到的字符会自动回退到中文黑体字面，两者基线一致，混排不会跳字。这四个字体都已随主题打包成 woff2 放在 <code>primary-fonts/</code>，<strong>换一台没有安装这些字体的电脑打开，排版也不会变</strong>。</p>
+
+<p>正文里的<strong>加粗中文</strong>、<em>倾斜中文</em>、<code>行内中文代码</code>都跟随同一套配色：加粗偏陶土红，斜体偏石板蓝。行距保持 Primary 原有的松弛感，段落之间留白充裕，长段落阅读不吃力。</p>
+
+<p>代码块中的中文则由 <strong>Maple Mono NF CN</strong> 承担，等宽网格严格 2:1，中英文混排时纵向严格对齐：</p>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line">配置项      说明                    默认值</div><div class="CodeMirror-line">theme.name  主题名称                Primary</div><div class="CodeMirror-line">theme.mode  明暗模式 light / dark   light</div><div class="CodeMirror-line">font.cjk    中文字体                HarmonyOS Sans SC</div><div class="CodeMirror-line">font.mono   代码字体                Maple Mono NF CN</div></div></div></div></div></div></pre>
+
 <div class="md-alert md-alert-note">
-<p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span></span></p>
-<p>提示类告示块同样支持中文标题与正文，图标与配色不受文字语种影响。</p>
+  <p class="md-end-block md-p"><span class="md-alert-text md-alert-text-note"><span class="md-alert-text-container" data-text="note"><svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span></span></p>
+  <p>提示类告示块同样支持中文标题与正文，图标与配色不受文字语种影响。</p>
 </div>
 
-<h2 id="code">Code</h2>
-<pre><code class="language-javascript">// Generate a random number between 1 and 10
-function generateRandomNumber() {
-  return Math.floor(Math.random() * 10) + 1;
-}
-</code></pre>
-<pre><code class="language-css">.callout {
-  background: color-mix(in srgb, rgb(var(--callout-rgb)) 32.5%, var(--p-bg));
-  border-radius: 8px;
-}
-</code></pre>
-<pre><code class="language-python">def fib(n: int) -&gt; int:
-    &quot;&quot;&quot;Return the n-th Fibonacci number.&quot;&quot;&quot;
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b, a + b
-    return a
-</code></pre>
-<h2 id="table">Table</h2>
-<table>
-<thead>
-<tr>
-<th>Token</th>
-<th>Light</th>
-<th>Dark</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bold</code></td>
-<td>terracotta</td>
-<td>coral</td>
-<td>emphasis</td>
-</tr>
-<tr>
-<td><code>italic</code></td>
-<td>slate blue</td>
-<td>sky</td>
-<td>asides</td>
-</tr>
-<tr>
-<td><code>link</code></td>
-<td>warm red</td>
-<td>warm red</td>
-<td>anchors</td>
-</tr>
-<tr>
-<td><code>mark</code></td>
-<td>three tints</td>
-<td>three tints</td>
-<td>highlight</td>
-</tr>
-</tbody>
+<h2>Code</h2>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="javascript"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line"><span class="cm-comment">// Generate a random number between 1 and 10</span></div><div class="CodeMirror-line"><span class="cm-keyword">function</span> <span class="cm-def">generateRandomNumber</span><span class="cm-bracket">()</span> <span class="cm-bracket">{</span></div><div class="CodeMirror-line">  <span class="cm-keyword">return</span> <span class="cm-variable">Math</span><span class="cm-operator">.</span><span class="cm-property">floor</span><span class="cm-bracket">(</span><span class="cm-variable">Math</span><span class="cm-operator">.</span><span class="cm-property">random</span><span class="cm-bracket">()</span> <span class="cm-operator">*</span> <span class="cm-number">10</span><span class="cm-bracket">)</span> <span class="cm-operator">+</span> <span class="cm-number">1</span><span class="cm-bracket">;</span></div><div class="CodeMirror-line"><span class="cm-bracket">}</span></div></div></div></div></div></div></pre>
+
+<pre class="md-fences md-end-block" spellcheck="false" lang="css"><div class="CodeMirror cm-s-inner CodeMirror-wrap"><div class="CodeMirror-scroll"><div class="CodeMirror-sizer"><div class="CodeMirror-lines"><div class="CodeMirror-code"><div class="CodeMirror-line"><span class="cm-selector">.callout</span> <span class="cm-bracket">{</span></div><div class="CodeMirror-line">  <span class="cm-property">background</span><span class="cm-bracket">:</span> <span class="cm-keyword">color-mix</span><span class="cm-bracket">(</span><span class="cm-keyword">in srgb</span><span class="cm-bracket">,</span> <span class="cm-keyword">rgb</span><span class="cm-bracket">(</span><span class="cm-variable">var</span><span class="cm-bracket">(</span><span class="cm-operator">--callout-rgb</span><span class="cm-bracket">))</span> <span class="cm-number">32.5%</span><span class="cm-bracket">,</span> <span class="cm-variable">var</span><span class="cm-bracket">(</span><span class="cm-operator">--p-bg</span><span class="cm-bracket">));</span></div><div class="CodeMirror-line">  <span class="cm-property">border-radius</span><span class="cm-bracket">:</span> <span class="cm-number">8px</span><span class="cm-bracket">;</span></div><div class="CodeMirror-line"><span class="cm-bracket">}</span></div></div></div></div></div></div></pre>
+
+<h2>Table</h2>
+
+<table class="md-table">
+  <thead>
+    <tr><th>Token</th><th>Light</th><th>Dark</th><th>Meaning</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>bold</code></td><td>terracotta</td><td>coral</td><td>emphasis</td></tr>
+    <tr><td><code>italic</code></td><td>slate blue</td><td>sky</td><td>asides</td></tr>
+    <tr><td><code>link</code></td><td>warm red</td><td>warm red</td><td>anchors</td></tr>
+    <tr><td><code>mark</code></td><td>three tints</td><td>three tints</td><td>highlight</td></tr>
+  </tbody>
 </table>
-<h2 id="math">Math</h2>
-<p>Inline math such as $e^{i\pi} + 1 = 0$ sits nicely in the text flow, and display
-math gets breathing room:</p>
-<p>$$
-\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat{y}_i\right)^2
-$$</p>
-<h2 id="horizontal-rule">Horizontal rule</h2>
-<hr />
-<h2 id="footnotes">Footnotes</h2>
-<p>Primary was voted Best Theme in Obsidian October 2021<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Obsidian October 2021, Best Theme category.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
+
+<h2>Horizontal rule</h2>
+
+<hr>
+
+<h2>Table of contents</h2>
+
+<div class="md-toc">
+  <a class="md-toc-item md-toc-h1" href="#"><span class="md-toc-inner">Welcome to Primary</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Headings</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Callouts</span></a>
+  <a class="md-toc-item md-toc-h2" href="#"><span class="md-toc-inner">Tags</span></a>
 </div>
+
+<h2>Footnotes</h2>
+
+<p>Primary was voted Best Theme in Obsidian October 2021<sup class="md-footnote"><a href="#fn:1">1</a></sup>.</p>
+
+<div class="footnotes">
+  <hr>
+  <ol>
+    <li class="footnote-line"><a class="reversefootnote" href="#">1.</a> Obsidian October 2021, Best Theme category.</li>
+  </ol>
+</div>
+
 </div>
 </body>
 </html>

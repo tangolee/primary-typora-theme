@@ -1,0 +1,15 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# editor swap / backup files
+*~
+*.swp
+*.swo
+
+# local runtime state, created by tooling — never part of the theme
+state/
+
+# locally packed release archives
+*.zip

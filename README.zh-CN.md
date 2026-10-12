@@ -15,7 +15,7 @@
 
 [安装](#安装) · [截图](#截图) · [主题包含什么](#主题包含什么) · [光标动画](#光标动画) · [自定义](#自定义) · [字体](#字体) · [仓库结构](#仓库结构) · [兼容性](#兼容性) · [许可](#许可)
 
-<img src="screenshot-hero.png" width="100%" alt="Primary for Typora —— 演示文档的浅色模式（左）与深色模式（右）">
+<img src="docs/screenshot-hero.png" width="100%" alt="Primary for Typora —— 演示文档的浅色模式（左）与深色模式（右）">
 
 </div>
 
@@ -69,17 +69,17 @@
 
 <br>
 
-**浅色** —— `screenshot-light.png`
+**浅色** —— `docs/screenshot-light.png`
 
-<img src="screenshot-light.png" width="45%" alt="浅色模式下的整页演示文档">
+<img src="docs/screenshot-light.png" width="45%" alt="浅色模式下的整页演示文档">
 
-**深色** —— `screenshot-dark.png`
+**深色** —— `docs/screenshot-dark.png`
 
-<img src="screenshot-dark.png" width="45%" alt="深色模式下的整页演示文档">
+<img src="docs/screenshot-dark.png" width="45%" alt="深色模式下的整页演示文档">
 
-**并排对照** —— `screenshot-compare.png`
+**并排对照** —— `docs/screenshot-compare.png`
 
-<img src="screenshot-compare.png" width="60%" alt="浅色与深色并排对照">
+<img src="docs/screenshot-compare.png" width="60%" alt="浅色与深色并排对照">
 
 </details>
 
@@ -89,9 +89,9 @@
 
 | 文件 | 内容 |
 | --- | --- |
-| `preview-light.html` · `preview-dark.html` | 所有元素一览 |
-| `preview-demo-light.html` · `preview-demo-dark.html` | 渲染好的演示文档 |
-| `probe-fallback.html` | 对照页：证明打包字体与系统已安装字体一致 |
+| `docs/preview-light.html` · `docs/preview-dark.html` | 所有元素一览 |
+| `docs/preview-demo-light.html` · `docs/preview-demo-dark.html` | 渲染好的演示文档 |
+| `docs/probe-fallback.html` | 对照页：证明打包字体与系统已安装字体一致 |
 
 > **预览页有一个前提要说清楚。** Typora 渲染时会把原始 HTML 里的 `class`、`id`、`data-*` 剥掉，导出时再放回来。这些页面是按**导出 / 打印**后的结果做的，所以下文那些 Obsidian 式 callout 在这里、以及导出的 HTML/PDF 里是带样式的 —— 但在编辑器里不是。编辑器里请使用 `> [!NOTE]` 写法，见 [Callout](#callout)。
 
@@ -328,17 +328,23 @@ CSS 靠下的位置有一个标着 **OPTIONAL** 的块，里面装着 Primary �
 
 ## 仓库结构
 
-| 路径 | 说明 |
-| --- | --- |
-| `primary.css` | 浅色构建 —— 整个主题，也是你要改的那个文件 |
-| `primary-dark.css` | 深色构建，同一份令牌集 |
-| `primary-fonts/` | 八个 woff2 文件，必须和 CSS 放在同一层 |
-| `primary-demo.md` | 演示文档：所有元素集中在一个文件里 |
-| `preview-*.html` | 自包含的浏览器预览页 |
-| `probe-fallback.html` | 字体回退对照页 |
-| `screenshot-*.png` | 上文用到的截图 |
-| `FONTS.md` | 字体来源、许可与验证 |
-| `LICENSE` | GPL-3.0 |
+前三项就是主题本身，`docs/` 里的全是文档资料 —— 想看就看，不看也无所谓，装主题只需要复制那三项。
+
+```text
+primary-typora-theme/
+├── primary.css            浅色构建 —— 整个主题，也是你要改的那个文件
+├── primary-dark.css       深色构建，同一份令牌集
+├── primary-fonts/         八个 woff2 文件，必须和 CSS 放在同一层
+├── docs/                  安装时用不到 —— 里面是：
+│   ├── primary-demo.md        演示文档：所有元素集中在一个文件里
+│   ├── preview-*.html         自包含的浏览器预览页
+│   ├── probe-fallback.html    字体回退对照页
+│   └── screenshot-*.png       上文用到的截图
+├── FONTS.md               字体来源、许可与验证
+├── README.md
+├── README.zh-CN.md
+└── LICENSE                GPL-3.0
+```
 
 ---
 

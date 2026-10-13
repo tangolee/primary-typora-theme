@@ -25,7 +25,7 @@
 
 ### 获取文件
 
-**直接下发布包最省事：** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) —— 六个 CSS 文件和 `primary-fonts/`，27.8 MiB，没有别的东西，解压就能用。
+**直接下发布包最省事：** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) —— 六个 CSS 文件和 `primary-fonts/`，27.9 MiB，没有别的东西，解压就能用。
 
 | 方式 | 做法 |
 | --- | --- |
@@ -168,7 +168,7 @@ Typora **不会**自己把 `X` 和 `X-dark` 配成一对。要用深色版，勾
 > Useful information that users should know, even when skimming.
 ```
 
-`[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]` 五种的配色都映射到 Primary 自己的 callout 色板，图标带对应色相承担强调，标题文字保持正文色。
+`[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]` 五种的配色都映射到 Primary 自己的 callout 色板，图标带对应色相承担强调，标题文字取**标题墨色**而非正文墨色 —— 标题条本身就是卡片的标题，而它落在卡片自己的底色上，那比页面更浅。深色构建里这个区别很要紧：用正文墨时标题只有 4.25:1，低于下限。
 
 **B. 通过原始 HTML 块使用完整的 Obsidian 集合。** Primary 为 Obsidian 的每一种 callout 都备了颜色，Typora 只有五种 alert，盖不住，所以主题也直接给 Obsidian 那套标记做了样式 —— 圆角卡片、着色标题条、以及一个同色相的小圆点：
 

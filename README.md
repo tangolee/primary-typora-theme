@@ -25,7 +25,7 @@ Same palette, same typography, same signature callouts, code chips and pill tags
 
 ### 1 · Get the files
 
-**The release download is the short path:** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) — the six CSS files and `primary-fonts/`, 27.8 MiB, and nothing else. Unzip and it is ready to drop in.
+**The release download is the short path:** [primary-typora-theme.zip](https://github.com/tangolee/primary-typora-theme/releases/latest/download/primary-typora-theme.zip) — the six CSS files and `primary-fonts/`, 27.9 MiB, and nothing else. Unzip and it is ready to drop in.
 
 | Option               | How                                                                                                                                                               |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -170,7 +170,7 @@ Two routes, both styled to Primary's callout recipe — **tinted header + cream 
 > Useful information that users should know, even when skimming.
 ```
 
-`[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]` are all mapped onto Primary's own callout colours, with a hue-tinted icon carrying the accent while the title stays in text colour.
+`[!NOTE]` `[!TIP]` `[!IMPORTANT]` `[!WARNING]` `[!CAUTION]` are all mapped onto Primary's own callout colours, with a hue-tinted icon carrying the accent while the title takes the **heading ink** rather than the body ink — the title row *is* the card's heading, and it sits on the card's own tint, which is lighter than the page. In the dark build that difference matters: on body ink the title measured 4.25:1, under the floor.
 
 **B. The full Obsidian set via a raw HTML block.** Primary ships a callout colour for every Obsidian type, and Typora's five alerts cannot cover that, so the theme also styles Obsidian's own markup directly — rounded card, tinted title row, a filled dot in the callout's hue:
 

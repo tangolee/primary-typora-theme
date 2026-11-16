@@ -523,13 +523,13 @@ body {
 
 /* Wide laptop / external monitor */
 @media only screen and (min-width: 1400px) {
-  :root { --p-measure: 58rem; }
+  :root { --p-measure: 64rem; }
 }
 
-/* Full-width window on a large panel — the point where a 16px CJK line would
-   otherwise run past ~60 glyphs and read as a wall of text. */
+/* Full-width window on a large panel. Typora's own themes stop at 1200px here
+   as well, so a wide window hands the text roughly the same measure. */
 @media only screen and (min-width: 1800px) {
-  :root { --p-measure: 62rem; }
+  :root { --p-measure: 75rem; }
 }
 
 /* Typora's own canvas layer */

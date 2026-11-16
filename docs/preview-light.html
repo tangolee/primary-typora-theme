@@ -634,13 +634,13 @@ body {
 
 /* Wide laptop / external monitor */
 @media only screen and (min-width: 1400px) {
-  :root { --p-measure: 58rem; }
+  :root { --p-measure: 64rem; }
 }
 
-/* Full-width window on a large panel — the point where a 16px CJK line would
-   otherwise run past ~60 glyphs and read as a wall of text. */
+/* Full-width window on a large panel. Typora's own themes stop at 1200px here
+   as well, so a wide window hands the text roughly the same measure. */
 @media only screen and (min-width: 1800px) {
-  :root { --p-measure: 62rem; }
+  :root { --p-measure: 75rem; }
 }
 
 /* Typora's own canvas layer */
@@ -2692,8 +2692,8 @@ of stopping at one breakpoint:</p>
   </thead>
   <tbody>
     <tr><td>Under 1400px</td><td>54rem · 864px</td><td>784px</td></tr>
-    <tr><td>1400–1799px</td><td>58rem · 928px</td><td>848px</td></tr>
-    <tr><td>1800px and up</td><td>62rem · 992px</td><td>912px</td></tr>
+    <tr><td>1400–1799px</td><td>64rem · 1024px</td><td>944px</td></tr>
+    <tr><td>1800px and up</td><td>75rem · 1200px</td><td>1120px</td></tr>
   </tbody>
 </table>
 
@@ -2744,4 +2744,4 @@ edit; the old build capped the text at 624px on every screen wider than a laptop
 </body>
 </html>
 
-<!-- generated from primary.css sha256:7fd95dcb5999 -->
+<!-- generated from primary.css sha256:4d1dee9b36b6 -->

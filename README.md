@@ -314,8 +314,8 @@ The writing column is one token, `--p-measure`, and it already steps up at two b
 --p-measure: 54rem;                     /* 864px, i.e. 784px of live text */
 
 /* 02 · BASE & DOCUMENT CANVAS — the two steps up */
-@media only screen and (min-width: 1400px) { :root { --p-measure: 58rem; } }
-@media only screen and (min-width: 1800px) { :root { --p-measure: 62rem; } }
+@media only screen and (min-width: 1400px) { :root { --p-measure: 64rem; } }
+@media only screen and (min-width: 1800px) { :root { --p-measure: 75rem; } }
 ```
 
 What those numbers buy you:
@@ -323,13 +323,13 @@ What those numbers buy you:
 | `--p-measure` | `#write` (padding included) | Live text |
 | ------------- | --------------------------- | --------- |
 | 54rem         | 864px                       | 784px     |
-| 58rem         | 928px                       | 848px     |
-| 62rem         | 992px                       | 912px     |
+| 64rem         | 1024px                      | 944px     |
+| 75rem         | 1200px                      | 1120px    |
 
 - **1rem is 16px here**, and `base.css` puts `box-sizing: border-box` on `#write`, so the figure you set already contains the 2.5rem side padding. Live text ends up 5rem (80px) narrower than the value.
 - **Each build carries its own copy.** `primary.css` and `primary-dark.css` share no token set — edit both, or the width will jump when the mode switches. The pattern themes (`primary-dots*.css`, `primary-grid*.css`) `@import` a build, so they follow for free.
 - **Typora does not hot-reload a theme.** Switch to another theme in **Preferences → Appearance → Themes** and switch back, or restart Typora, before deciding it did nothing.
-- **Past ~62rem** a 16px CJK line runs beyond 60 glyphs. That is a look rather than a reading measure — pair it with a larger `line-height` (the body sits at 1.6) or a smaller body size.
+- **Past ~75rem** you are at 1200px, which is about 70 CJK glyphs per line. If you want it that wide, raise `line-height` (the body sits at 1.6) or drop the body size a notch.
 - Want the pre-0.1.6 column back? Use `44rem`, with `48rem` from the 1400px breakpoint up.
 
 ### Putting a coloured bar back on callouts

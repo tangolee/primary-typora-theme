@@ -187,11 +187,11 @@ $$
 The writing column is a token now — `--p-measure` in the `01 · ROOT VARIABLES`
 block — and it steps up with the viewport instead of stopping at one breakpoint:
 
-| Viewport         | `#write`      | Live text |
-| ---------------- | ------------- | --------- |
-| Under 1400px     | 54rem · 864px | 784px     |
-| 1400–1799px      | 58rem · 928px | 848px     |
-| 1800px and up    | 62rem · 992px | 912px     |
+| Viewport         | `#write`       | Live text |
+| ---------------- | -------------- | --------- |
+| Under 1400px     | 54rem · 864px  | 784px     |
+| 1400–1799px      | 64rem · 1024px | 944px     |
+| 1800px and up    | 75rem · 1200px | 1120px    |
 
 One variable and two breakpoints per build, so widening the page is a one-line
 edit; the old build capped the text at 624px on every screen wider than a laptop.

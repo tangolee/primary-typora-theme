@@ -311,8 +311,8 @@ Typora 画光标的方式有两种，天花板差得很远。主题在各自允�
 --p-measure: 54rem;                     /* 864px，其中正文 784px */
 
 /* 02 · BASE & DOCUMENT CANVAS —— 两级放大 */
-@media only screen and (min-width: 1400px) { :root { --p-measure: 58rem; } }
-@media only screen and (min-width: 1800px) { :root { --p-measure: 62rem; } }
+@media only screen and (min-width: 1400px) { :root { --p-measure: 64rem; } }
+@media only screen and (min-width: 1800px) { :root { --p-measure: 75rem; } }
 ```
 
 这几个数值对应什么：
@@ -320,13 +320,13 @@ Typora 画光标的方式有两种，天花板差得很远。主题在各自允�
 | `--p-measure` | `#write`（含内边距） | 正文实际宽度 |
 | ------------- | -------------------- | ------------ |
 | 54rem         | 864px                | 784px        |
-| 58rem         | 928px                | 848px        |
-| 62rem         | 992px                | 912px        |
+| 64rem         | 1024px               | 944px        |
+| 75rem         | 1200px               | 1120px       |
 
 - **这里的 1rem = 16px**，而 `base.css` 给 `#write` 设了 `box-sizing: border-box`，所以你填的数值已经包含左右各 2.5rem 的内边距 —— 正文实际宽度比数值少 5rem（80px）。
 - **两套构建各有一份。** `primary.css` 与 `primary-dark.css` 不共享令牌，两边都要改，否则切换明暗时宽度会跳一下；纹理主题（`primary-dots*.css`、`primary-grid*.css`）是 `@import` 主文件，会自动跟随。
 - **Typora 不会热重载主题。** 改完去「偏好设置 → 外观 → 主题」先选另一个主题、再选回 Primary（或者重启 Typora），才会看到新宽度。
-- **超过 62rem 以后**，16px 的中文一行就要排到 60 字以上了。那更像观感而不是阅读宽度 —— 要么把 `line-height`（正文当前 1.6）调大，要么把正文字号降到 15px。
+- **超过 75rem 就是 1200px 了**，16px 的中文一行约 70 字。真要这么宽，把 `line-height`（正文现在 1.6）调大一点，或者把正文字号降到 15px。
 - 想回到 0.1.6 之前的窄列：默认写 `44rem`，1400px 断点写 `48rem`。
 
 ### 把 callout 的彩色左边线加回来

@@ -294,6 +294,7 @@ Every knob lives in the `01 · ROOT VARIABLES` block at the top of the CSS file.
   --p-italic:          /* *italic*                       */
   --p-hl-yellow:       /* ==highlight== tints            */
   --p-callout-opacity: /* how strong the callout tints are */
+  --p-measure:         /* width of the writing column     */
   --p-font-text:       /* body font stack                */
   --p-font-mono:       /* code font stack                */
   --p-caret-*          /* see above                      */

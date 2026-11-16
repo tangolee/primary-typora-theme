@@ -12,16 +12,22 @@ Primary is soft, chewy, comforting — like a chocolate chip cookie, or a warm
 brownie. It merges **play** with *work*, and it was ported here from the Obsidian
 theme of the same name.
 
+Read more at [the Primary documentation](https://github.com/primary-theme/obsidian),
+jump to [Callouts](#callouts), or mail <hello@example.com>.
+
+## Inline elements
+
 Fine-tuned to pixel and colour perfection, Primary aims to take away the need to
 think about customization, so that you can **focus on what matters** — the
 concepts, that link, this great idea. <u>Underlined text</u> stays quiet,
 ~~struck-through text~~ steps back, and `inline code` wears a warm little chip.
 Highlights come in three flavours: ==plain==, **==bold==** and *==italic==*.
 
-Read more at [the Primary documentation](https://github.com/primary-theme/obsidian),
-jump to [Callouts](#callouts), or mail <hello@example.com>.
-
 ## Headings
+
+# Heading 1
+
+## Heading 2
 
 ### Heading 3
 
@@ -160,11 +166,11 @@ def fib(n: int) -> int:
 
 ## Table
 
-| Token   | Light       | Dark      | Meaning   |
-| ------- | ----------- | --------- | --------- |
-| `bold`  | terracotta  | coral     | emphasis  |
-| `italic`| slate blue  | sky       | asides    |
-| `link`  | warm red    | warm red  | anchors   |
+| Token   | Light       | Dark        | Meaning   |
+| ------- | ----------- | ----------- | --------- |
+| `bold`  | terracotta  | coral       | emphasis  |
+| `italic`| slate blue  | sky         | asides    |
+| `link`  | warm red    | warm red    | anchors   |
 | `mark`  | three tints | three tints | highlight |
 
 ## Math
@@ -175,6 +181,20 @@ math gets breathing room:
 $$
 \text{MSE} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat{y}_i\right)^2
 $$
+
+## Reading width
+
+The writing column is a token now — `--p-measure` in the `01 · ROOT VARIABLES`
+block — and it steps up with the viewport instead of stopping at one breakpoint:
+
+| Viewport         | `#write`      | Live text |
+| ---------------- | ------------- | --------- |
+| Under 1400px     | 54rem · 864px | 784px     |
+| 1400–1799px      | 58rem · 928px | 848px     |
+| 1800px and up    | 62rem · 992px | 912px     |
+
+One variable and two breakpoints per build, so widening the page is a one-line
+edit; the old build capped the text at 624px on every screen wider than a laptop.
 
 ## Horizontal rule
 

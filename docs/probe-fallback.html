@@ -181,6 +181,17 @@
                  Menlo, Consolas, "Liberation Mono",
                  "Microsoft YaHei Mono", monospace;
 
+  /* ── Reading measure ──────────────────────────────────────────────────── */
+  /* Width of the writing column. base.css sets `box-sizing: border-box`, so
+     this figure already includes #write's 2.5rem side padding: the text itself
+     sits at roughly `--p-measure` − 5rem. 54rem is 864px, i.e. ~784px of live
+     text — wide enough for long CJK paragraphs and code tables without turning
+     the page into a full-bleed layout. Two viewport breakpoints widen it again
+     in 02 · BASE & DOCUMENT CANVAS; retune the whole document from this one
+     value (both builds — the palettes share no tokens, so the dark build has
+     its own copy). */
+  --p-measure: 54rem;
+
   /* ── Grayscale ramp (Primary · Classic Original, light) ───────────────── */
   --p-gray-10:  hsl(36, 38%, 98%);
   --p-gray-20:  hsl(35, 36%, 96%);
@@ -497,9 +508,14 @@ body {
   caret-color: var(--p-caret-color);
 }
 
-/* Writing column — Primary uses a 40rem reading measure */
+/* Writing column — the measure itself lives in `--p-measure` (01 · ROOT
+   VARIABLES). It used to be a hard 44rem / 48rem pair, which left the reading
+   area noticeably narrow on anything wider than a laptop: 624px of live text
+   at 1400px and up. The default is now 54rem, and the two queries below step it
+   up on larger displays instead of stopping at one breakpoint. Values include
+   the side padding; see the note on --p-measure. */
 #write {
-  max-width: 44rem;
+  max-width: var(--p-measure, 54rem);
   margin: 0 auto;
   padding: 2.25rem 2.5rem 8rem;
   font-size: 1rem;
@@ -510,8 +526,15 @@ body {
   word-wrap: break-word;
 }
 
+/* Wide laptop / external monitor */
 @media only screen and (min-width: 1400px) {
-  #write { max-width: 48rem; }
+  :root { --p-measure: 58rem; }
+}
+
+/* Full-width window on a large panel — the point where a 16px CJK line would
+   otherwise run past ~60 glyphs and read as a wall of text. */
+@media only screen and (min-width: 1800px) {
+  :root { --p-measure: 62rem; }
 }
 
 /* Typora's own canvas layer */
@@ -2422,4 +2445,4 @@ body { font: 14px/1.6 monospace; margin: 20px; background: #fff; color: #111; }
 })();
 </script></body></html>
 
-<!-- generated from primary.css sha256:0c6b6be0f2d4 -->
+<!-- generated from primary.css sha256:7fd95dcb5999 -->

@@ -287,6 +287,17 @@ body.ty-fileview-armed #write { caret-color: transparent; }
                  Menlo, Consolas, "Liberation Mono",
                  "Microsoft YaHei Mono", monospace;
 
+  /* ── Reading measure ──────────────────────────────────────────────────── */
+  /* Width of the writing column. base.css sets `box-sizing: border-box`, so
+     this figure already includes #write's 2.5rem side padding: the text itself
+     sits at roughly `--p-measure` − 5rem. 54rem is 864px, i.e. ~784px of live
+     text — wide enough for long CJK paragraphs and code tables without turning
+     the page into a full-bleed layout. Two viewport breakpoints widen it again
+     in 02 · BASE & DOCUMENT CANVAS; retune the whole document from this one
+     value (both builds — the palettes share no tokens, so the light build has
+     its own copy). */
+  --p-measure: 54rem;
+
   /* ── Grayscale ramp (Primary · Classic Original, dark) ────────────────── */
   --p-gray-10:  hsl(32, 48%, 85%);
   --p-gray-20:  hsl(34, 39%, 74%);
@@ -586,9 +597,14 @@ body {
   caret-color: var(--p-caret-color);
 }
 
-/* Writing column — Primary uses a 40rem reading measure */
+/* Writing column — the measure itself lives in `--p-measure` (01 · ROOT
+   VARIABLES). It used to be a hard 44rem / 48rem pair, which left the reading
+   area noticeably narrow on anything wider than a laptop: 624px of live text
+   at 1400px and up. The default is now 54rem, and the two queries below step it
+   up on larger displays instead of stopping at one breakpoint. Values include
+   the side padding; see the note on --p-measure. */
 #write {
-  max-width: 44rem;
+  max-width: var(--p-measure, 54rem);
   margin: 0 auto;
   padding: 2.25rem 2.5rem 8rem;
   font-size: 1rem;
@@ -599,8 +615,15 @@ body {
   word-wrap: break-word;
 }
 
+/* Wide laptop / external monitor */
 @media only screen and (min-width: 1400px) {
-  #write { max-width: 48rem; }
+  :root { --p-measure: 58rem; }
+}
+
+/* Full-width window on a large panel — the point where a 16px CJK line would
+   otherwise run past ~60 glyphs and read as a wall of text. */
+@media only screen and (min-width: 1800px) {
+  :root { --p-measure: 62rem; }
 }
 
 /* Typora's own canvas layer */
@@ -2482,16 +2505,18 @@ tags: [theme, obsidian, warm]</pre>
 brownie. It merges <strong>play</strong> with <em>work</em>, and it was ported here
 from the Obsidian theme of the same name.</p>
 
+<p>Read more at <a href="https://github.com/primary-theme/obsidian">the Primary
+documentation</a>, jump to <a href="#callouts">Callouts</a>, or mail
+<a href="mailto:hello@example.com">hello@example.com</a>.</p>
+
+<h2 id="inline-elements">Inline elements</h2>
+
 <p>Fine-tuned to pixel and colour perfection, Primary aims to take away the need to
 think about customization, so that you can <strong>focus on what matters</strong>
 — the concepts, that link, this great idea. <u>Underlined text</u> stays quiet,
 <s>struck-through text</s> steps back, and <code>inline code</code> wears a warm
 little chip. Highlights come in three flavours: <mark>plain</mark>,
 <strong><mark>bold</mark></strong> and <em><mark>italic</mark></em>.</p>
-
-<p>Read more at <a href="https://github.com/primary-theme/obsidian">the Primary
-documentation</a>, jump to <a href="#callouts">Callouts</a>, or mail
-<a href="mailto:hello@example.com">hello@example.com</a>.</p>
 
 <h2 id="headings">Headings</h2>
 
@@ -2638,6 +2663,26 @@ Primary pill:</p>
   </tbody>
 </table>
 
+<h2 id="reading-width">Reading width</h2>
+
+<p>The writing column is a token now — <code>--p-measure</code> in the
+<code>01 · ROOT VARIABLES</code> block — and it steps up with the viewport instead
+of stopping at one breakpoint:</p>
+
+<table class="md-table">
+  <thead>
+    <tr><th>Viewport</th><th><code>#write</code></th><th>Live text</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Under 1400px</td><td>54rem · 864px</td><td>784px</td></tr>
+    <tr><td>1400–1799px</td><td>58rem · 928px</td><td>848px</td></tr>
+    <tr><td>1800px and up</td><td>62rem · 992px</td><td>912px</td></tr>
+  </tbody>
+</table>
+
+<p>One variable and two breakpoints per build, so widening the page is a one-line
+edit; the old build capped the text at 624px on every screen wider than a laptop.</p>
+
 <h2 id="horizontal-rule">Horizontal rule</h2>
 
 <hr>
@@ -2649,7 +2694,7 @@ Primary pill:</p>
      listed inside it. Every other heading below resolves. -->
 <div class="md-toc">
   <a class="md-toc-item md-toc-h1" href="#welcome-to-primary"><span class="md-toc-inner">Welcome to Primary</span></a>
-  <a class="md-toc-item md-toc-h2" href="#headings"><span class="md-toc-inner">Headings</span></a>
+  <a class="md-toc-item md-toc-h2" href="#inline-elements"><span class="md-toc-inner">Inline elements</span></a><a class="md-toc-item md-toc-h2" href="#headings"><span class="md-toc-inner">Headings</span></a>
   <a class="md-toc-item md-toc-h1" href="#heading-1"><span class="md-toc-inner">Heading 1</span></a>
   <a class="md-toc-item md-toc-h2" href="#heading-2"><span class="md-toc-inner">Heading 2</span></a>
   <a class="md-toc-item md-toc-h3" href="#heading-3"><span class="md-toc-inner">Heading 3</span></a>
@@ -2663,7 +2708,7 @@ Primary pill:</p>
   <a class="md-toc-item md-toc-h2" href="#_1"><span class="md-toc-inner">中文排版</span></a>
   <a class="md-toc-item md-toc-h2" href="#code"><span class="md-toc-inner">Code</span></a>
   <a class="md-toc-item md-toc-h2" href="#table"><span class="md-toc-inner">Table</span></a>
-  <a class="md-toc-item md-toc-h2" href="#horizontal-rule"><span class="md-toc-inner">Horizontal rule</span></a>
+  <a class="md-toc-item md-toc-h2" href="#reading-width"><span class="md-toc-inner">Reading width</span></a><a class="md-toc-item md-toc-h2" href="#horizontal-rule"><span class="md-toc-inner">Horizontal rule</span></a>
   <a class="md-toc-item md-toc-h2" href="#footnotes"><span class="md-toc-inner">Footnotes</span></a>
 </div>
 
@@ -2682,4 +2727,4 @@ Primary pill:</p>
 </body>
 </html>
 
-<!-- generated from primary-dark.css sha256:a7efa2f45977 -->
+<!-- generated from primary-dark.css sha256:1b5504ad9bb8 -->

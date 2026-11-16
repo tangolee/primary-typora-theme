@@ -291,6 +291,7 @@ Typora 画光标的方式有两种，天花板差得很远。主题在各自允�
   --p-italic:          /* *斜体*                  */
   --p-hl-yellow:       /* ==高亮== 的底色          */
   --p-callout-opacity: /* callout 着色的浓度       */
+  --p-measure:         /* 正文栏宽度              */
   --p-font-text:       /* 正文字体栈              */
   --p-font-mono:       /* 代码字体栈              */
   --p-caret-*          /* 见上                    */

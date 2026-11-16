@@ -303,6 +303,35 @@ Every knob lives in the `01 · ROOT VARIABLES` block at the top of the CSS file.
 
 Because the two builds share one token set, **editing a token in `primary.css` does not change `primary-dark.css`** — change both if you want the tweak to follow the mode switch.
 
+### Changing the page width
+
+The writing column is one token, `--p-measure`, and it already steps up at two breakpoints. Both live in the stylesheet you installed:
+
+```css
+/* primary.css and primary-dark.css — change both, they share no tokens */
+
+/* 01 · ROOT VARIABLES — every screen below the first breakpoint */
+--p-measure: 54rem;                     /* 864px, i.e. 784px of live text */
+
+/* 02 · BASE & DOCUMENT CANVAS — the two steps up */
+@media only screen and (min-width: 1400px) { :root { --p-measure: 58rem; } }
+@media only screen and (min-width: 1800px) { :root { --p-measure: 62rem; } }
+```
+
+What those numbers buy you:
+
+| `--p-measure` | `#write` (padding included) | Live text |
+| ------------- | --------------------------- | --------- |
+| 54rem         | 864px                       | 784px     |
+| 58rem         | 928px                       | 848px     |
+| 62rem         | 992px                       | 912px     |
+
+- **1rem is 16px here**, and `base.css` puts `box-sizing: border-box` on `#write`, so the figure you set already contains the 2.5rem side padding. Live text ends up 5rem (80px) narrower than the value.
+- **Each build carries its own copy.** `primary.css` and `primary-dark.css` share no token set — edit both, or the width will jump when the mode switches. The pattern themes (`primary-dots*.css`, `primary-grid*.css`) `@import` a build, so they follow for free.
+- **Typora does not hot-reload a theme.** Switch to another theme in **Preferences → Appearance → Themes** and switch back, or restart Typora, before deciding it did nothing.
+- **Past ~62rem** a 16px CJK line runs beyond 60 glyphs. That is a look rather than a reading measure — pair it with a larger `line-height` (the body sits at 1.6) or a smaller body size.
+- Want the pre-0.1.6 column back? Use `44rem`, with `48rem` from the 1400px breakpoint up.
+
 ### Putting a coloured bar back on callouts
 
 If you prefer GitHub's look over Primary's, the theme deliberately cancels the built-in side rule. Append this to the CSS file to restore one:
